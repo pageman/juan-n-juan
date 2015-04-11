@@ -109,7 +109,7 @@ return [
 	*/
 
 	'providers' => [
-
+        'Barryvdh\Debugbar\ServiceProvider', // woo
 		/*
 		 * Laravel Framework Service Providers...
 		 */
@@ -145,6 +145,12 @@ return [
 		'CoreProc\JuanNJuan\Providers\EventServiceProvider',
 		'CoreProc\JuanNJuan\Providers\RouteServiceProvider',
 
+        /*
+         * Custom package service providers
+         */
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        'Zizaco\Entrust\EntrustServiceProvider',
+        'Collective\Html\HtmlServiceProvider',
 	],
 
 	/*
@@ -193,6 +199,10 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 
-	],
+        'Form'       => 'Collective\Html\FormFacade',
+        'Html'       => 'Collective\Html\HtmlFacade',
+        'Entrust'    => 'Zizaco\Entrust\EntrustFacade',
+        'Debugbar'   => 'Barryvdh\Debugbar\Facade',
+    ],
 
 ];
