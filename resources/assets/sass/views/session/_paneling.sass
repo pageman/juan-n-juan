@@ -3,14 +3,24 @@
     width: 100%
     height: 100%
 .session__stream.paneling-container
-  @include jnj__paneling(0, 0, 0, 250px)
+  @include jnj__paneling(0, 0, 100px, 250px)
   @include jnj__paneling-scroll--y(false, false, true, false, true)
-  .paneling-body video
-    width: 100%
-    height: 100%
-    background-color: #000
-  .paneling-sidebar--left .list-group
-    margin: 0
+  .paneling-footer .paneling-container
+    @include jnj__paneling(0, 250px, 0, 0)
+    padding-left: 250px
+    video
+      width: 100%
+      height: 100%
+      background-color: #000
+  .paneling-body
+    video
+      width: 100%
+      height: 100%
+      background-color: #000
+  .paneling-sidebar--left
+    z-index: 1
+    .list-group
+      margin: 0
   .paneling-sidebar--right ul
     display: block
     padding: 0

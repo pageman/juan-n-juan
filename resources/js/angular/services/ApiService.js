@@ -27,6 +27,12 @@
                 .one("channels", id)
                 .remove();
         };
+
+        this.sendChannel = function(params) {
+            return Restangular
+                .all("send")
+                .post(params);
+        };
     };
 
     ApiService.$inject = ["Restangular"];

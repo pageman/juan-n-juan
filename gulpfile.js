@@ -21,6 +21,7 @@ elixir(function(mix) {
             "../../vendor/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js",
             "../../vendor/bower_components/angular/angular.js",
             "../../vendor/bower_components/restangular/dist/restangular.js",
+
             "../../vendor/bower_components/peerjs/peer.js",
 
             "angular/pre.js",
@@ -29,9 +30,7 @@ elixir(function(mix) {
             "angular/controllers/ChannelsCtrl.js",
             "angular/controllers/HomeCtrl.js",
             "angular/controllers/SessionCtrl.js",
-            "angular/post.js",
-
-            "peer/peer.js"
+            "angular/post.js"
         ], "public/js/script.js")
         .version(["css/style.css", "js/script.js"]);
 });
