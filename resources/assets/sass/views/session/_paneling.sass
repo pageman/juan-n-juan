@@ -1,0 +1,31 @@
+.session__stream.paneling-container
+  @include jnj__paneling(0, 0, 0, 250px)
+  @include jnj__paneling-scroll--y(false, false, true, false, true)
+  .paneling-body video
+    width: 100%
+    height: 100%
+    background-color: #000
+  .paneling-sidebar--left .list-group
+    margin: 0
+  .paneling-sidebar--right ul
+    display: block
+    padding: 0
+    margin: 0
+    li
+      display: block
+      height: 150px
+      position: relative
+      > *
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+      > a > span
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        padding: 10px 15px
+        background-color: transparentize($brand-primary, 0.5)
+        color: #fff
