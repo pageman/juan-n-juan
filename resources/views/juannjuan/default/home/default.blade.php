@@ -7,7 +7,7 @@
       <div class="jumbotron">
         <div class="container">
           <p class="h1">Juan <span class="brand--logo">N</span> Juan</p>
-          <button class="btn btn-primary btn-lg">Connect with Facebook</button>
+          <a class="btn btn-primary btn-lg" data-ui-sref="jnj.channels">Connect with Facebook</a>
         </div>
       </div>
     </div>

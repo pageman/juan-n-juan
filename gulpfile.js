@@ -21,6 +21,8 @@ elixir(function(mix) {
             "../../vendor/bower_components/angular-ui-router/release/angular-ui-router.js",
             "../../vendor/bower_components/peerjs/peer.js",
             "angular/pre.js",
+            "angular/config/router.js",
+            "angular/controllers/HomeCtrl.js",
             "angular/post.js"
         ], "public/js/script.js")
         .version(["css/style.css", "js/script.js"]);

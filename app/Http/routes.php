@@ -13,7 +13,7 @@
 
 Route::get('/', 'DefaultViewController@viewHome');
 
-Route::get('session', 'DefaultViewController@viewSession');
+Route::get('session/{sessionId}', 'DefaultViewController@viewSession');
 
 Route::controllers([
     'auth'     => 'Auth\AuthController',
