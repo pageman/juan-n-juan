@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'Def\DefLayoutController@viewHome');
+Route::get('/', 'ViewController@viewHome');
 
 /*
 Route::get('home', 'HomeController@index');
