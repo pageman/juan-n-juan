@@ -1,0 +1,27 @@
+{
+  "name": "juan-n-juan",
+  "version": "0.0.1",
+  "authors": [
+    "CoreProc, Inc."
+  ],
+  "main": "gulpfile.js",
+  "keywords": [
+    "juan-n-juan",
+    "juan",
+    "OFW",
+    "GlobalPinoyHackathon"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.4",
+    "bootstrap-sass-official": "~3.3.4"
+  }
+}
