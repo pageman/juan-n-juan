@@ -11,15 +11,15 @@
                 <span class="h1 juan">Juan</span> <span class="h1 brand--logo">N</span> <span class="h1 juan">Juan</span>
             </div>
               <br>
-            <div class="row">
+            <div class="row btn-group">
                 <a class="btn btn-primary btn-lg" data-ui-sref="jnj.channels" href="oauth/facebook">
                     <span class="fa fa-facebook-square"></span>&nbsp;&nbsp; Facebook
-                </a> or
+                </a>
                 <a class="btn btn-primary btn-lg" data-ui-sref="jnj.channels" href="oauth/twitter">
                     <span class="fa fa-twitter-square"></span>&nbsp;&nbsp; Twitter
                 </a>
             </div>
-              <p><span class="container-fluid" id="home--menu">Terms | Privacy</span></p>
+              <p><span class="container-fluid" id="home--menu">Free and fast one-on-one video calling with your peers and loved ones, here and abroad</span></p>
           </div>
         </div>
       </div>
