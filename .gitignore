@@ -1,6 +1,4 @@
-#/vendor
-/node_modules
-.env
+vendor/bower_components
 
 ### Node template
 # Logs
@@ -106,5 +104,5 @@ $RECYCLE.BIN/
 /bootstrap/compiled.php
 .env.*.php
 .env.php
-
+.env
 
