@@ -10,7 +10,7 @@
     <div class="paneling-body">
       <div class="container">
         <ul class="row">
-          <li class="col-xs-6 col-sm-4 col-md-3 col-lg-2" data-ng-repeat="channel in ctrl.channels">
+          <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3" data-ng-repeat="channel in ctrl.channels">
             <a data-ng-href="/session/@{{ channel.id }}">
               <div class="media">
                 <div class="media-left">
