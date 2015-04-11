@@ -9,103 +9,19 @@
     </header>
     <div class="paneling-body">
       <div class="container">
-        <h3>A</h3>
         <ul class="row">
-          <li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">
-              <p>Channel 1</p>
-              <p class="text-muted">dsdfgsdfgsdfg</p>
+          <li class="col-xs-6 col-sm-4 col-md-3 col-lg-2" data-ng-repeat="channel in ctrl.channels">
+            <a data-ng-href="/session/@{{ channel.id }}">
+              <div class="media">
+                <div class="media-left">
+                  <img class="media-object" src="http://placehold.it/64" alt="@{{ channel.name }}">
+                </div>
+                <div class="media-body">
+                  <p class="h3 media-heading" data-ng-bind="channel.name">Media heading</p>
+                  <p data-ng-bind="channel.desc"></p>
+                </div>
+              </div>
             </a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li>
-        </ul>
-        <h3>B</h3>
-        <ul class="row">
-          <li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
-          </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
           </li>
         </ul>
       </div>

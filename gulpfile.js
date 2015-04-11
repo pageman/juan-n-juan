@@ -29,7 +29,9 @@ elixir(function(mix) {
             "angular/controllers/ChannelsCtrl.js",
             "angular/controllers/HomeCtrl.js",
             "angular/controllers/SessionCtrl.js",
-            "angular/post.js"
+            "angular/post.js",
+
+            "peer/peer.js"
         ], "public/js/script.js")
         .version(["css/style.css", "js/script.js"]);
 });

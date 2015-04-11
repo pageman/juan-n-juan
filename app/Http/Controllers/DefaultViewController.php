@@ -4,13 +4,15 @@ class DefaultViewController extends ViewController {
 
     private $view;
 
-    private function makeView($id, $title) {
+    private function makeView($id, $title, $data = []) {
+        $view_args = [
+            'view' => $this->view,
+            'app' => $this->app,
+        ];
+
         $this->view->id = $id;
         $this->view->title = $title;
-        return view("juannjuan.{$this->view->group}.{$id}.{$this->view->layout}", [
-            'view' => $this->view,
-            'app' => $this->app
-        ]);
+        return view("juannjuan.{$this->view->group}.{$id}.{$this->view->layout}", array_merge($view_args, $data));
     }
 
     public function __construct()
@@ -32,8 +34,8 @@ class DefaultViewController extends ViewController {
         return $this->makeView('channels', "Channels");
     }
 
-    public function viewSession()
+    public function viewSession($sessionId)
     {
-        return $this->makeView('session', "Session");
+        return $this->makeView('session', "Session", [ "session_id" => $sessionId ]);
     }
 }
