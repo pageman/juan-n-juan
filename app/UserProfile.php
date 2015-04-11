@@ -20,6 +20,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class UserProfile extends Model {
 
-	//
+	protected $hidden = ['id', 'updated_at', 'created_at', 'user_id'];
 
 }
