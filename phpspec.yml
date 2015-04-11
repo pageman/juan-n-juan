@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: App
-        psr4_prefix: App
+        namespace: CoreProc\JuanNJuan
+        psr4_prefix: CoreProc\JuanNJuan
         src_path: app

@@ -1,4 +1,4 @@
-<?php namespace App\Commands;
+<?php namespace CoreProc\JuanNJuan\Commands;
 
 abstract class Command {
 

@@ -1,6 +1,6 @@
-<?php namespace App\Services;
+<?php namespace CoreProc\JuanNJuan\Services;
 
-use App\User;
+use CoreProc\JuanNJuan\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 
