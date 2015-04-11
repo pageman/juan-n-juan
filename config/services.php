@@ -35,11 +35,12 @@ return [
     ],
 
     'facebook' => [
-        'app_id'         => '806954689360296',
-        'app_secret_key' => 'b59545b6d0cf7862737beda9d5b835fb'
+        'client_id'     => '806954689360296',
+        'client_secret' => 'b59545b6d0cf7862737beda9d5b835fb',
+        'redirect'      => 'http://localhost:8000/oauth/callback'
     ],
 
-    'peerjs' => [
+    'peerjs'   => [
         'api_key' => 'a70rdfino7ehr529'
     ]
 

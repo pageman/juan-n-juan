@@ -1,23 +1,38 @@
 <?php namespace CoreProc\JuanNJuan\Http\Controllers;
 
+use Auth;
 use CoreProc\JuanNJuan\Http\Requests;
-use CoreProc\JuanNJuan\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
+use CoreProc\JuanNJuan\User;
 use Socialize;
 
 class OAuthController extends Controller {
 
     public function redirectToProvider()
     {
-        return Socialize::with('github')->redirect();
+        return Socialize::with('facebook')->redirect();
     }
 
     public function handleProviderCallback()
     {
-        $user = Socialize::with('github')->user();
+        if (!Auth::check()) {
+            $user_social = Socialize::with('facebook')->user();
 
-        // $user->token;
+            $user = User::where('email', $user_social->getEmail())->first();
+
+            if (isset($user)) {
+                Auth::login($user);
+            } else {
+                $user           = new User;
+                $user->email    = $user_social->getEmail();
+                $user->name     = $user_social->getName();
+                $user->password = bcrypt(str_random());
+                $user->save();
+            }
+
+            return redirect('/');
+        }
+
+        return redirect('auth/login');
     }
 
 }
