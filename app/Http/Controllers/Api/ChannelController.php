@@ -20,7 +20,7 @@ class ChannelController extends Controller {
      */
     public function index()
     {
-        $channels = Request::has('country') ? 
+        $channels = Request::has('country') ?
             Channel::where('country_id', Request::get('country'))->get() : Channel::all();
 
         return \Response::json([
