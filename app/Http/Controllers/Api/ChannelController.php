@@ -21,7 +21,9 @@ class ChannelController extends Controller {
     {
         $channels = Channel::all()->load('user');
 
-        return \Response::json($channels);
+        return \Response::json([
+            'ok' => $channels
+        ]);
     }
 
     public function create(Requests\ChannelRequest $request)
