@@ -5,7 +5,6 @@
     width: 100%
     height: 100%
 .session__stream.paneling-container
-  @include jnj__paneling(0, 0, 0, 250px)
   > .paneling-footer .paneling-container
     @include jnj__paneling(0, 250px, 0, 0)
     video
@@ -83,7 +82,19 @@
         padding: 10px 15px
         background-color: transparentize($brand-primary, 0.5)
         color: #fff
-@media (max-aspect-ratio: 4/3)
+.inset
+  height: 33%
+  width: 25%
+@media (max-width: $screen-md-max)
+  .session__stream.paneling-container
+    @include jnj__paneling(0, 0, 0, $sidebar-width-md)
+@media (min-width: $screen-lg-min)
+  .session__stream.paneling-container
+    @include jnj__paneling(0, 0, 0, $sidebar-width-lg)
+@media (max-width: $screen-xs-max)
+  .session__stream.paneling-container
+    padding-left: 0
+@media (max-aspect-ratio: 16/9)
   .session__stream.paneling-container
     padding-left: 0
     > #view__channel-list
@@ -97,7 +108,3 @@
   .inset
     height: 33%
     width: 50%
-@media (min-aspect-ratio: 4/3)
-  .inset
-    height: 33%
-    width: 25%

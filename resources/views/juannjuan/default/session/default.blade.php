@@ -13,7 +13,7 @@
         <div class="paneling-container">
           <div class="paneling-header">
             <div class="container-fluid">
-              <button class="close visible-smaller-4-by-3" data-ng-click="ctrl.listVisible = false"><i class="fa fa-fw fa-times"></i></button>
+              <button class="close visible-smaller-16-by-9" data-ng-click="ctrl.listVisible = false"><i class="fa fa-fw fa-times"></i></button>
               <h2>Channels</h2>
             </div>
           </div>
@@ -36,7 +36,7 @@
         <div class="paneling-container">
           <div class="paneling-header">
             <div class="container-fluid">
-              <button class="btn btn-link visible-smaller-4-by-3" data-ng-model="ctrl.listVisible" data-btn-checkbox>
+              <button class="btn btn-link visible-smaller-16-by-9" data-ng-class="{ 'active': ctrl.listVisible }" data-ng-click="ctrl.listVisible = true">
                 <i class="fa fa-fw fa-list"></i>
               </button>
             </div>
@@ -47,6 +47,7 @@
               <div class="paneling-container">
                 <div class="paneling-sidebar paneling-sidebar--left">
                   <button class="btn btn-link pull-left"
+                          data-ng-style="{ 'color': ctrl.muted ? '#ff0000' : null }"
                           data-ng-click="ctrl.muted = !ctrl.muted">
                     <i class="fa fa-fw" data-ng-class="{ 'fa-volume-up': !ctrl.muted, 'fa-volume-off': ctrl.muted }"></i>
                   </button>
