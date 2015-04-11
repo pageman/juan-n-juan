@@ -27,6 +27,11 @@ class DefaultViewController extends ViewController {
         return $this->makeView('home', "Home");
     }
 
+    public function viewChannels()
+    {
+        return $this->makeView('channels', "Channels");
+    }
+
     public function viewSession()
     {
         return $this->makeView('session', "Session");

@@ -9,6 +9,8 @@
     angular.module("jnj.directives", []);
 
     angular.module("jnj", [
+        "restangular",
+
         "jnj.services",
         "jnj.controllers",
         "jnj.filters",
