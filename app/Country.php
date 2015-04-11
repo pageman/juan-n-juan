@@ -38,6 +38,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Country extends Model {
 
-	protected $visible = ['id', 'name'];
+	protected $visible = ['id', 'name', 'iso_3166_2'];
 
 }

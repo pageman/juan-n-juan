@@ -17,6 +17,9 @@
                 <a class="btn btn-primary btn-lg" href="{{ url('oauth/facebook') }}">
                   <i class="fa fa-facebook-square"></i> Connect with Facebook
                 </a>
+                <a class="btn btn-primary btn-lg" href="{{ url('oauth/twitter') }}">
+                  <i class="fa fa-twitter-square"></i> Connect with Twitter
+                </a>
               @endif
             </div>
           </div>
