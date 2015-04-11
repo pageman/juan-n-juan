@@ -14,4 +14,9 @@
       </div>
     </section>
   </div>
+
+  <video autoplay loop poster="{{ asset('img/jnj.jpg') }}" id="bgvid">
+    <source src="{{ asset('video/bg-movie.webm') }}" type="video/webm">
+    <source src="{{ asset('video/bg-movie.mp4') }}" type="video/mp4">
+  </video>
 @stop
