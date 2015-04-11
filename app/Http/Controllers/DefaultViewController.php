@@ -43,9 +43,9 @@ class DefaultViewController extends ViewController {
     public function viewSession($sessionId)
     {
         try {
-            Channel::findOrFail($sessionId);
+            $channel = Channel::findOrFail($sessionId);
 
-            return $this->makeView('session', "Session", ["session_id" => $sessionId]);
+            return $this->makeView('session', "Session", ["session_id" => $sessionId, "channel" => $channel]);
         } catch (ModelNotFoundException $e) {
             app()->abort(404);
         }
