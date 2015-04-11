@@ -30,7 +30,8 @@
         "CoreProc\\JuanNJuan\\Providers\\RouteServiceProvider",
         "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider",
         "Zizaco\\Entrust\\EntrustServiceProvider",
-        "Collective\\Html\\HtmlServiceProvider"
+        "Collective\\Html\\HtmlServiceProvider",
+        "Laravel\\Socialite\\SocialiteServiceProvider"
     ],
     "eager": [
         "Barryvdh\\Debugbar\\ServiceProvider",
@@ -132,7 +133,8 @@
         "command.ide-helper.generate": "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider",
         "command.ide-helper.models": "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider",
         "html": "Collective\\Html\\HtmlServiceProvider",
-        "form": "Collective\\Html\\HtmlServiceProvider"
+        "form": "Collective\\Html\\HtmlServiceProvider",
+        "Laravel\\Socialite\\Contracts\\Factory": "Laravel\\Socialite\\SocialiteServiceProvider"
     },
     "when": {
         "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider": [
@@ -172,6 +174,9 @@
 
         ],
         "Collective\\Html\\HtmlServiceProvider": [
+
+        ],
+        "Laravel\\Socialite\\SocialiteServiceProvider": [
 
         ]
     }
