@@ -13,6 +13,8 @@
 
 Route::get('/', 'DefaultViewController@viewHome');
 
+Route::get('channels', 'DefaultViewController@viewChannels');
+
 Route::get('session/{sessionId}', 'DefaultViewController@viewSession');
 
 Route::controllers([

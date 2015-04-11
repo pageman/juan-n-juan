@@ -1,7 +1,7 @@
 @extends('juannjuan.default')
 
 @section('content')
-  <div id="view__viewport" data-ui-view>
+  <div id="view__viewport">
     <h1 class="sr-only">{{ $view->title }}</h1>
 
     {{--<nav class="navbar navbar-default navbar-fixed-top">--}}

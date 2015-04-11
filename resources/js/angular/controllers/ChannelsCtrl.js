@@ -3,11 +3,15 @@
 (function(angular, undefined) {
     "use strict";
 
-    var ChannelsCtrl = function() {
+    var ChannelsCtrl = function(ApiService) {
+        ApiService
+            .getChannels()
+            .then(function(response) {
 
+            });
     };
 
-    ChannelsCtrl.$inject = [];
+    ChannelsCtrl.$inject = ["ApiService"];
 
     angular
         .module("jnj.controllers")
