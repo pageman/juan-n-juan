@@ -1,6 +1,8 @@
 <?php namespace CoreProc\JuanNJuan\Http\Controllers;
 
 use CoreProc\JuanNJuan\Channel;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class DefaultViewController extends ViewController {
 
@@ -40,9 +42,13 @@ class DefaultViewController extends ViewController {
 
     public function viewSession($sessionId)
     {
-        Channel::findOrFail($sessionId);
+        try {
+            Channel::findOrFail($sessionId);
 
-        return $this->makeView('session', "Session", ["session_id" => $sessionId]);
+            return $this->makeView('session', "Session", ["session_id" => $sessionId]);
+        } catch (ModelNotFoundException $e) {
+            app()->abort(404);
+        }
 
     }
 }
