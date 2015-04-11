@@ -23,8 +23,14 @@ class ChannelController extends Controller {
         $channels = Request::has('country') ?
             Channel::where('country_id', Request::get('country'))->get() : Channel::all();
 
-        return \Response::json([
+        return Response::json([
             'ok' => $channels->load('user')
+        ]);
+    }
+
+    public function all() {
+        return Response::json([
+            'ok' => Channel::all()->load('user')
         ]);
     }
 

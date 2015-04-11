@@ -19,7 +19,7 @@
                     <span class="fa fa-twitter-square"></span>&nbsp;&nbsp; Twitter
                 </a>
             </div>
-              <p><span class="container-fluid" id="home--menu">Free and fast one-on-one video calling with your peers and loved ones, here and abroad</span></p>
+              <p><span class="container-fluid" id="home--menu">Free and fast one-on-one video calling to <strong>anyone</strong>, here and abroad</span></p>
           </div>
         </div>
       </div>

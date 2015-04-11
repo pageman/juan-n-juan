@@ -31,14 +31,17 @@ Route::group(['prefix' => 'oauth', 'middleware' => 'guest'], function () {
     Route::get('twitter/callback', 'OAuthController@handleProviderTwitterCallback');
 });
 
-Route::group(['prefix' => 'api', 'middleware' => 'auth'], function () {
-    Route::group(['prefix' => 'channels'], function () {
+
+
+Route::group(['prefix' => 'api'], function () {
+    Route::get('channels/list', 'Api\ChannelController@all');
+    Route::group(['prefix' => 'channels', 'middleware' => 'auth'], function () {
         Route::get('', 'Api\ChannelController@index');
         Route::post('', 'Api\ChannelController@create');
         Route::delete('{id}', 'Api\ChannelController@remove');
     });
 
-    Route::group(['prefix' => 'users'], function () {
+    Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
         Route::get('me', 'Api\UserController@me');
         Route::get('{id}', 'Api\UserController@show');
     });
