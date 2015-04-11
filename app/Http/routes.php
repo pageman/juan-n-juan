@@ -16,11 +16,15 @@ Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
-    'users'     => 'Auth\AuthController',
+    'auth'     => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
 
 Route::group(['prefix' => 'oauth'], function () {
-    Route::get('facebook', 'CoreProc\JuanNJuan\Http\Controllers\OAuthController@redirectToProvider');
-    Route::get('callback', 'CoreProc\JuanNJuan\Http\Controllers\OAuthController@handleProviderCallback');
+    Route::get('facebook', 'OAuthController@redirectToProvider');
+    Route::get('callback', 'OAuthController@handleProviderCallback');
+});
+
+Route::group(['prefix' => 'api'], function() {
+    Route::controller('channels', 'ChannelController');
 });
