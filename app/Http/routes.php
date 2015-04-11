@@ -16,6 +16,11 @@ Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+    'users'     => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
 ]);
+
+Route::group(['prefix' => 'oauth'], function () {
+    Route::get('facebook', 'CoreProc\JuanNJuan\Http\Controllers\OAuthController@redirectToProvider');
+    Route::get('callback', 'CoreProc\JuanNJuan\Http\Controllers\OAuthController@handleProviderCallback');
+});

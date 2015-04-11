@@ -31,7 +31,8 @@
         "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider",
         "Zizaco\\Entrust\\EntrustServiceProvider",
         "Collective\\Html\\HtmlServiceProvider",
-        "Laravel\\Socialite\\SocialiteServiceProvider"
+        "Laravel\\Socialite\\SocialiteServiceProvider",
+        "Webpatser\\Countries\\CountriesServiceProvider"
     ],
     "eager": [
         "Barryvdh\\Debugbar\\ServiceProvider",
@@ -51,7 +52,8 @@
         "CoreProc\\JuanNJuan\\Providers\\ConfigServiceProvider",
         "CoreProc\\JuanNJuan\\Providers\\EventServiceProvider",
         "CoreProc\\JuanNJuan\\Providers\\RouteServiceProvider",
-        "Zizaco\\Entrust\\EntrustServiceProvider"
+        "Zizaco\\Entrust\\EntrustServiceProvider",
+        "Webpatser\\Countries\\CountriesServiceProvider"
     ],
     "deferred": {
         "command.app.name": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
