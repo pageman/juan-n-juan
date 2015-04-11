@@ -1,10 +1,11 @@
-<?php namespace CoreProc\JuanNJuan\Http\Controllers;
+<?php namespace CoreProc\JuanNJuan\Http\Controllers\Api;
 
-use CoreProc\JuanNJuan\Http\Requests;
 use CoreProc\JuanNJuan\Http\Controllers\Controller;
+use CoreProc\JuanNJuan\Http\Requests;
 
 use CoreProc\JuanNJuan\User;
 use Response;
+use Auth;
 
 class UserController extends Controller {
 
@@ -14,4 +15,7 @@ class UserController extends Controller {
         return Response::json($user);
     }
 
+    public function me() {
+        return Response::json(Auth::user());
+    }
 }

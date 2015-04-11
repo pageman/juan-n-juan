@@ -1,5 +1,6 @@
 <?php namespace CoreProc\JuanNJuan\Http\Controllers\Api;
 
+use Auth;
 use CoreProc\JuanNJuan\Channel;
 use CoreProc\JuanNJuan\Country;
 use CoreProc\JuanNJuan\Http\Controllers\Controller;
@@ -7,8 +8,8 @@ use CoreProc\JuanNJuan\Http\Requests;
 use CoreProc\JuanNJuan\Services\Error;
 use Exception;
 use Geocoder;
+use Request;
 use Response;
-use Auth;
 
 class ChannelController extends Controller {
 
@@ -17,9 +18,11 @@ class ChannelController extends Controller {
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $channels = Channel::all()->load('user');
+        if ($request->has('country')) {
+            $channels = Channel::all()->load('user');
+        }
 
         return \Response::json($channels);
     }
@@ -128,11 +131,13 @@ class ChannelController extends Controller {
         ]);
     }
 
-    public function join($id) {
+    public function join($id)
+    {
 
     }
 
-    public function part($id) {
+    public function part($id)
+    {
 
     }
 }

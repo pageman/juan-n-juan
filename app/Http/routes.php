@@ -32,9 +32,13 @@ Route::group(['prefix' => 'api'], function () {
         Route::get('{id}', 'Api\ChannelController@show');
         Route::delete('{id}', 'Api\ChannelController@remove');
     });
+
+    Route::group(['prefix' => 'users'], function() {
+        Route::get('me', 'Api\UserController@me');
+        Route::get('{id}', 'Api\UserController@show');
+    });
+
+    Route::get('countries', 'Api\CountryController@index');
 });
 
-Route::group(['prefix' => 'users'], function() {
-    Route::get('me', '');
-    Route::get('{id}', '');
-});
+
