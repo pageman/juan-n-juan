@@ -72,7 +72,8 @@ class ChannelController extends Controller {
     public function remove($id)
     {
         try {
-            Channel::destroy($id);
+            $channel = Channel::findOrFail($id);
+            $channel->delete();
         } catch (Exception $e) {
             return Error::response($e);
         }
