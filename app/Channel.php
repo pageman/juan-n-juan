@@ -24,6 +24,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\CoreProc\JuanNJuan\Channel whereUserId($value)
  * @method static \Illuminate\Database\Query\Builder|\CoreProc\JuanNJuan\Channel whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\CoreProc\JuanNJuan\Channel whereUpdatedAt($value)
+ * @property string $peer_key 
+ * @method static \Illuminate\Database\Query\Builder|\CoreProc\JuanNJuan\Channel wherePeerKey($value)
  */
 class Channel extends Model {
 
