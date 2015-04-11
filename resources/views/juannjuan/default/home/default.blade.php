@@ -14,11 +14,14 @@
                   <i class="fa fa-comments"></i>Find Channels
                 </a>
               @else
+                <p class="lead">
+                  Connect with
+                </p>
                 <a class="btn btn-primary btn-lg" href="{{ url('oauth/facebook') }}">
-                  <i class="fa fa-facebook-square"></i> Connect with Facebook
+                  <i class="fa fa-facebook-square"></i> Facebook
                 </a>
                 <a class="btn btn-primary btn-lg" href="{{ url('oauth/twitter') }}">
-                  <i class="fa fa-twitter-square"></i> Connect with Twitter
+                  <i class="fa fa-twitter-square"></i> Twitter
                 </a>
               @endif
             </div>
