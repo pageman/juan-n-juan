@@ -12,7 +12,10 @@
         <h3>A</h3>
         <ul class="row">
           <li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <a href="#">Channel 1</a>
+            <a href="#">
+              <p>Channel 1</p>
+              <p class="text-muted">dsdfgsdfgsdfg</p>
+            </a>
           </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
             <a href="#">Channel 1</a>
           </li><li class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
