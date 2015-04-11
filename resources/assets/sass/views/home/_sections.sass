@@ -16,7 +16,7 @@
             display: table-cell
             vertical-align: middle
             text-align: center
-          p.h1.juan
+          p.h1
             font-weight: 200
             color: #fff
             //text-shadow: 10px 2px 8px #333
@@ -28,7 +28,6 @@
             > a
               position: relative
               overflow: hidden
-              padding-left: 64px + 15px
               > i
                 position: absolute
                 font-size: 400%
@@ -52,4 +51,18 @@ video#bgvid
   z-index: -100
   background: url('/img/jnj.jpg') no-repeat
   background-size: cover
-
+@media (min-width: $screen-sm-min)
+  .view__cta
+    > a
+      @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large)
+      padding-left: 64px + 15px
+      > i
+        font-size: 400%
+@media (max-width: $screen-xs-max)
+  p.h1
+    font-size: $font-size-h1
+  .view__cta
+    > a
+      padding-left: 48px + 15px
+      > i
+        font-size: 200%

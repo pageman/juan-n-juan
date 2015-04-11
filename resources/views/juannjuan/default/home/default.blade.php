@@ -17,10 +17,10 @@
                 <p class="lead">
                   Connect with
                 </p>
-                <a class="btn btn-primary btn-lg" href="{{ url('oauth/facebook') }}">
+                <a class="btn btn-primary" href="{{ url('oauth/facebook') }}">
                   <i class="fa fa-facebook-square"></i> Facebook
                 </a>
-                <a class="btn btn-primary btn-lg" href="{{ url('oauth/twitter') }}">
+                <a class="btn btn-primary" href="{{ url('oauth/twitter') }}">
                   <i class="fa fa-twitter-square"></i> Twitter
                 </a>
               @endif
