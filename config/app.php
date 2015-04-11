@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'timezone'        => 'UTC',
+    'timezone'        => 'Asia/Manila',
 
     /*
     |--------------------------------------------------------------------------
@@ -151,7 +151,8 @@ return [
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Zizaco\Entrust\EntrustServiceProvider',
         'Collective\Html\HtmlServiceProvider',
-        'Laravel\Socialite\SocialiteServiceProvider'
+        'Laravel\Socialite\SocialiteServiceProvider',
+        'Webpatser\Countries\CountriesServiceProvider',
     ],
 
     /*
@@ -205,6 +206,7 @@ return [
         'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
         'Debugbar'  => 'Barryvdh\Debugbar\Facade',
         'Socialize' => 'Laravel\Socialite\Facades\Socialite',
+        'Countries' => 'Webpatser\Countries\CountriesFacade',
     ],
 
 ];

@@ -15,9 +15,18 @@ Route::get('/', 'Def\DefLayoutController@viewHome');
 
 /*
 Route::get('home', 'HomeController@index');
+*/
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+    'auth'     => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
 ]);
-*/
+
+Route::group(['prefix' => 'oauth'], function () {
+    Route::get('facebook', 'OAuthController@redirectToProvider');
+    Route::get('callback', 'OAuthController@handleProviderCallback');
+});
+
+Route::group(['prefix' => 'api'], function() {
+    Route::controller('channels', 'ChannelController');
+});

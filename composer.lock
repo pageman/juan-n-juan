@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2b6ed4752022a00276d08d8a6e3aa301",
+    "hash": "0786275a2e78ce3bbb68653b3e51f025",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -3004,6 +3004,58 @@
                 "environment"
             ],
             "time": "2014-12-05 15:19:21"
+        },
+        {
+            "name": "webpatser/laravel-countries",
+            "version": "1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webpatser/laravel-countries.git",
+                "reference": "ce45962a2fd8559b01b0e748b7c7e5d210054a44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webpatser/laravel-countries/zipball/ce45962a2fd8559b01b0e748b7c7e5d210054a44",
+                "reference": "ce45962a2fd8559b01b0e748b7c7e5d210054a44",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "laravel-library",
+            "autoload": {
+                "psr-0": {
+                    "Webpatser\\Countries": "src/"
+                },
+                "classmap": [
+                    "src/commands"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christoph Kempen",
+                    "email": "christoph@downsized.nl",
+                    "homepage": "http://downsized.nl/",
+                    "role": "developer"
+                },
+                {
+                    "name": "Paul Kievits",
+                    "role": "developer"
+                }
+            ],
+            "description": "Laravel Countries is a bundle for Laravel, providing Almost ISO 3166_2, 3166_3, currency, Capital and more for all countries.",
+            "homepage": "https://github.com/webpatser/laravel-countries",
+            "keywords": [
+                "countries",
+                "iso_3166_2",
+                "iso_3166_3",
+                "laravel"
+            ],
+            "time": "2015-03-23 14:22:43"
         },
         {
             "name": "zizaco/entrust",
