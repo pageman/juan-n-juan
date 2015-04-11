@@ -3,24 +3,64 @@
     width: 100%
     height: 100%
 .session__stream.paneling-container
-  @include jnj__paneling(0, 0, 100px, 250px)
-  @include jnj__paneling-scroll--y(false, false, true, false, true)
+  @include jnj__paneling(0, 0, 0, 250px)
   .paneling-footer .paneling-container
     @include jnj__paneling(0, 250px, 0, 0)
-    padding-left: 250px
     video
       width: 100%
       height: 100%
       background-color: #000
   .paneling-body
-    video
+    width: 100%
+    height: 100%
+    position: relative
+    background-color: #000
+    color: #fff
+    .btn
+      border: 2px solid
+      border-radius: 999px
+      font-size: 150%
+      &.btn-link
+        background-color: #000
+        padding: 10px 11px
+    > .paneling-container
+      > .paneling-header
+        padding-top: 10px
+        padding-bottom: 10px
+    #session__peer-main
       width: 100%
       height: 100%
-      background-color: #000
+    .inset
+      position: absolute
+      height: 100px
+      width: 250px
+      bottom: 0
+      right: 0
+      padding-left: 48px
+      .btn
+        position: absolute
+        top: 0
+        left: 0
+
+      video
+        display: block
+        float: right
+        height: 100%
+    //#session__you
   .paneling-sidebar--left
     z-index: 1
-    .list-group
-      margin: 0
+    background-color: $body-bg
+    .close
+      margin-top: 10px
+      border: 2px solid
+      border-radius: 999px
+      font-size: 150%
+      padding: 15px 11px
+    .paneling-container
+      @include jnj__paneling(64px, 0, 0, 0)
+      @include jnj__paneling-scroll--y(true, false, false, false, true)
+      > .paneling-body
+        background-color: inherit
   .paneling-sidebar--right ul
     display: block
     padding: 0
@@ -43,3 +83,17 @@
         padding: 10px 15px
         background-color: transparentize($brand-primary, 0.5)
         color: #fff
+@media (max-width: $screen-xs-max)
+  .session__stream.paneling-container
+    padding-left: 0
+    > #view__channel-list
+      position: fixed
+      left: -250px
+    &.list-visible > #view__channel-list
+      left: 0
+    > .paneling-body
+      > .paneling-container
+        @include jnj__paneling(75px, 0, 0, 0)
+@media (min-width: $screen-sm-min)
+  .session__stream.paneling-container .paneling-footer .paneling-container
+    padding-left: 250px

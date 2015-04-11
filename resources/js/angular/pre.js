@@ -10,6 +10,7 @@
 
     angular.module("jnj", [
         "restangular",
+        "ui.bootstrap",
 
         "jnj.services",
         "jnj.controllers",

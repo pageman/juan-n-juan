@@ -28,7 +28,8 @@ class ChannelRequest extends Request {
         return [
             'name'     => 'required',
             'desc'     => 'max:255',
-            'password' => 'max:255'
+            'password' => 'max:255',
+            'peer_key' => 'required|max:255'
         ];
     }
 

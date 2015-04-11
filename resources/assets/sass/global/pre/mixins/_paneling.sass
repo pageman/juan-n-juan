@@ -6,28 +6,36 @@
   > .paneling-body
     width: 100%
     height: 100%
-  > .paneling-header, > .paneling-footer, > .paneling-sidebar
-    position: absolute
-  > .paneling-header, .paneling-sidebar
-    top: 0
   > .paneling-header
-    height: $top
-  > .paneling-sidebar.paneling-sidebar--left
-    width: $left
-  > .paneling-footer
-    bottom: 0
-    height: $bottom
-  > .paneling-header, .paneling-footer, .paneling-sidebar.paneling-sidebar--left
+    position: absolute
+    top: 0
     left: 0
-  > .paneling-sidebar.paneling-sidebar--right
     right: 0
-    width: $right
-  > .paneling-header, >.paneling-footer
+    height: $top
     width: 100%
-  > .paneling-sidebar
+  > .paneling-footer
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    height: $bottom
+    width: 100%
+  > .paneling-sidebar--left
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
     height: 100%
+    width: $left
+  > .paneling-sidebar--right
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    height: 100%
+    width: $right
 
-@mixin jnj__paneling-scroll--x($body, $top, $right, $bottom: $top, $left: $right)
+@mixin jnj__paneling-scroll--x($body, $top: false, $right: $top, $bottom: $top, $left: $right)
   @if($body == true)
     > .paneling-body
       overflow-x: auto
@@ -35,16 +43,16 @@
     > .paneling-header
       overflow-x: auto
   @if($right == true)
-    > .paneling-sidebar.paneling-sidebar--right
+    > .paneling-sidebar--right
       overflow-x: auto
   @if($bottom == true)
     > .paneling-footer
       overflow-x: auto
   @if($left == true)
-    > .paneling-sidebar.paneling-sidebar--left
+    > .paneling-sidebar--left
       overflow-x: auto
 
-@mixin jnj__paneling-scroll--y($body, $top, $right, $bottom: $top, $left: $right)
+@mixin jnj__paneling-scroll--y($body, $top: false, $right: $top, $bottom: $top, $left: $right)
   @if($body == true)
     > .paneling-body
       overflow-y: auto
@@ -52,11 +60,11 @@
     > .paneling-header
       overflow-y: auto
   @if($right == true)
-    > .paneling-sidebar.paneling-sidebar--right
+    > .paneling-sidebar--right
       overflow-y: auto
   @if($bottom == true)
     > .paneling-footer
       overflow-y: auto
   @if($left == true)
-    > .paneling-sidebar.paneling-sidebar--left
+    > .paneling-sidebar--left
       overflow-y: auto

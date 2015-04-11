@@ -9,6 +9,9 @@
 
         var peer;
 
+        ctrl.muted = false;
+        ctrl.listVisible = false;
+
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
         ctrl.selectChannel = function(thatId) {

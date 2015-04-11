@@ -13,6 +13,8 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix
+        .copy("vendor/bower_components/bootstrap-sass/assets/fonts/bootstrap", "public/fonts/glyphicons")
+        .copy("vendor/bower_components/fontawesome/fonts", "public/fonts/fontawesome")
         .sass("style.sass", false, { indentedSyntax: true })
         .scripts([
             "../../vendor/bower_components/jquery/dist/jquery.js",
@@ -21,15 +23,21 @@ elixir(function(mix) {
             "../../vendor/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js",
             "../../vendor/bower_components/angular/angular.js",
             "../../vendor/bower_components/restangular/dist/restangular.js",
+            "../../vendor/bower_components/angular-bootstrap/ui-bootstrap.js",
 
             "../../vendor/bower_components/peerjs/peer.js",
 
             "angular/pre.js",
             "angular/config/restangular.js",
+
             "angular/services/ApiService.js",
+
             "angular/controllers/ChannelsCtrl.js",
             "angular/controllers/HomeCtrl.js",
             "angular/controllers/SessionCtrl.js",
+
+            "angular/directives/ngMuted.js",
+
             "angular/post.js"
         ], "public/js/script.js")
         .version(["css/style.css", "js/script.js"]);
