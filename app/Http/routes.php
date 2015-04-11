@@ -27,6 +27,16 @@ Route::group(['prefix' => 'oauth'], function () {
     Route::get('callback', 'OAuthController@handleProviderCallback');
 });
 
-Route::group(['prefix' => 'api'], function() {
-    Route::controller('channels', 'ChannelController');
+Route::group(['prefix' => 'api'], function () {
+    Route::group(['prefix' => 'channels'], function () {
+        Route::get('', 'ChannelController@index');
+        Route::post('', 'ChannelController@create');
+        Route::get('{id}', 'ChannelController@show');
+        Route::delete('{id}', 'ChannelController@remove');
+    });
+});
+
+Route::group(['prefix' => 'users'], function() {
+    Route::get('me', '');
+    Route::get('{id}', '');
 });

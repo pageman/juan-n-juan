@@ -10,6 +10,7 @@ return array(
     'CountriesSeeder' => $baseDir . '/database/seeds/CountriesSeeder.php',
     'CreateChannelsTable' => $baseDir . '/database/migrations/2015_04_11_150558_create_channels_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreateUserChannelsTable' => $baseDir . '/database/migrations/2015_04_11_175137_create_user_channels_table.php',
     'CreateUserProfilesTable' => $baseDir . '/database/migrations/2015_04_11_144552_create_user_profiles_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
