@@ -36,7 +36,7 @@ Route::group(['prefix' => 'oauth', 'middleware' => 'guest'], function () {
 Route::group(['prefix' => 'api'], function () {
     Route::get('channels/list', 'Api\ChannelController@all');
     Route::get('countries', 'Api\CountryController@index');
-    
+
     Route::group(['prefix' => 'channels', 'middleware' => 'auth'], function () {
         Route::get('', 'Api\ChannelController@index');
         Route::post('', 'Api\ChannelController@create');
