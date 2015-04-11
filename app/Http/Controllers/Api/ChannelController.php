@@ -1,7 +1,8 @@
-<?php namespace CoreProc\JuanNJuan\Http\Controllers;
+<?php namespace CoreProc\JuanNJuan\Http\Controllers\Api;
 
 use CoreProc\JuanNJuan\Channel;
 use CoreProc\JuanNJuan\Country;
+use CoreProc\JuanNJuan\Http\Controllers\Controller;
 use CoreProc\JuanNJuan\Http\Requests;
 use CoreProc\JuanNJuan\Services\Error;
 use Exception;

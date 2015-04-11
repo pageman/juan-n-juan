@@ -27,10 +27,10 @@ Route::group(['prefix' => 'oauth'], function () {
 
 Route::group(['prefix' => 'api'], function () {
     Route::group(['prefix' => 'channels'], function () {
-        Route::get('', 'ChannelController@index');
-        Route::post('', 'ChannelController@create');
-        Route::get('{id}', 'ChannelController@show');
-        Route::delete('{id}', 'ChannelController@remove');
+        Route::get('', 'Api\ChannelController@index');
+        Route::post('', 'Api\ChannelController@create');
+        Route::get('{id}', 'Api\ChannelController@show');
+        Route::delete('{id}', 'Api\ChannelController@remove');
     });
 });
 
