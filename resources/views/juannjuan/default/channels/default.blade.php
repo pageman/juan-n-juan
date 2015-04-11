@@ -14,7 +14,7 @@
             <a data-ng-href="/session/@{{ channel.id }}">
               <div class="media">
                 <div class="media-left">
-                  <img class="media-object" src="http://placehold.it/64" alt="@{{ channel.name }}">
+                  <img class="media-object" src="" data-ng-src="@{{ channel.user.user_profile.avatar }}" alt="@{{ channel.name }}">
                 </div>
                 <div class="media-body">
                   <p class="h3 media-heading" data-ng-bind="channel.name">Media heading</p>

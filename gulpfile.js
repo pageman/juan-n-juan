@@ -40,5 +40,5 @@ elixir(function(mix) {
 
             "angular/post.js"
         ], "public/js/script.js")
-        .version(["css/style.css", "js/script.js"]);
+        .version(["css/style.css"]);
 });

@@ -6,13 +6,13 @@
     height: 100%
 .session__stream.paneling-container
   @include jnj__paneling(0, 0, 0, 250px)
-  .paneling-footer .paneling-container
+  > .paneling-footer .paneling-container
     @include jnj__paneling(0, 250px, 0, 0)
     video
       width: 100%
       height: 100%
       background-color: #000
-  .paneling-body
+  > .paneling-body
     width: 100%
     height: 100%
     position: relative
@@ -35,24 +35,21 @@
       height: 100%
     .inset
       position: absolute
-      height: 100px
-      width: 250px
       bottom: 0
       right: 0
-      padding-left: 48px
-      .btn
-        position: absolute
-        top: 0
-        left: 0
-
+      > .paneling-container
+        @include jnj__paneling(0, 0, 0, 53px)
+        > .paneling-body
+          padding-left: 15px
       video
-        display: block
-        float: right
+        width: 100%
         height: 100%
     //#session__you
-  .paneling-sidebar--left
+  > .paneling-sidebar--left
     z-index: 1
     background-color: $body-bg
+    .media .media-object
+      height: 64px
     .close
       margin-top: 10px
       border: 2px solid
@@ -64,7 +61,7 @@
       @include jnj__paneling-scroll--y(true, false, false, false, true)
       > .paneling-body
         background-color: inherit
-  .paneling-sidebar--right ul
+  > .paneling-sidebar--right ul
     display: block
     padding: 0
     margin: 0
@@ -86,7 +83,7 @@
         padding: 10px 15px
         background-color: transparentize($brand-primary, 0.5)
         color: #fff
-@media (max-width: $screen-xs-max)
+@media (max-aspect-ratio: 4/3)
   .session__stream.paneling-container
     padding-left: 0
     > #view__channel-list
@@ -97,6 +94,10 @@
     > .paneling-body
       > .paneling-container
         @include jnj__paneling(75px, 0, 0, 0)
-@media (min-width: $screen-sm-min)
-  .session__stream.paneling-container .paneling-footer .paneling-container
-    padding-left: 250px
+  .inset
+    height: 33%
+    width: 50%
+@media (min-aspect-ratio: 4/3)
+  .inset
+    height: 33%
+    width: 25%
