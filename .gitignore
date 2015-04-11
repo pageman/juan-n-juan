@@ -1,6 +1,4 @@
-/vendor/bower_components
-#/node_modules
-.env
+vendor/bower_components
 
 ### Node template
 # Logs
@@ -29,7 +27,7 @@ build/Release
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
-#node_modules
+node_modules
 
 
 ### JetBrains template
@@ -106,5 +104,5 @@ $RECYCLE.BIN/
 /bootstrap/compiled.php
 .env.*.php
 .env.php
-
+.env
 
