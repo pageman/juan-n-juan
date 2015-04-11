@@ -1,5 +1,6 @@
 <?php namespace CoreProc\JuanNJuan\Http\Controllers\Auth;
 
+use CoreProc\JuanNJuan\Channel;
 use CoreProc\JuanNJuan\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
@@ -34,5 +35,14 @@ class AuthController extends Controller {
 
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
+
+    public function getLogout()
+    {
+        Channel::whereUserId($this->auth->user()->id)->delete();
+
+        $this->auth->logout();
+
+        return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
+    }
 
 }

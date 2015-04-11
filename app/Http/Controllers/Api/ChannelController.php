@@ -8,6 +8,7 @@ use CoreProc\JuanNJuan\Http\Requests;
 use CoreProc\JuanNJuan\Services\Error;
 use Exception;
 use Geocoder;
+use Request;
 use Response;
 
 class ChannelController extends Controller {
@@ -19,10 +20,11 @@ class ChannelController extends Controller {
      */
     public function index()
     {
-        $channels = Channel::all()->load('user');
+        $channels = Request::has('country') ?
+            Channel::where('country_id', Request::get('country'))->get() : Channel::all();
 
         return \Response::json([
-            'ok' => $channels
+            'ok' => $channels->load('user')
         ]);
     }
 
@@ -41,7 +43,7 @@ class ChannelController extends Controller {
         $country_code = @($country_code) ?: 608;
 
         try {
-            $channel = Channel::firstOrNew([
+            $channel          = Channel::firstOrNew([
                 'user_id' => Auth::id()
             ]);
             $channel->user_id = Auth::id();
