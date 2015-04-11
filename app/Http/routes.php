@@ -25,11 +25,10 @@ Route::group(['prefix' => 'oauth'], function () {
     Route::get('callback', 'OAuthController@handleProviderCallback');
 });
 
-Route::group(['prefix' => 'api'], function () {
+Route::group(['prefix' => 'api', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'channels'], function () {
         Route::get('', 'Api\ChannelController@index');
         Route::post('', 'Api\ChannelController@create');
-        Route::get('{id}', 'Api\ChannelController@show');
         Route::delete('{id}', 'Api\ChannelController@remove');
     });
 

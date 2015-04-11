@@ -3,6 +3,7 @@
 use Auth;
 use CoreProc\JuanNJuan\Http\Requests;
 use CoreProc\JuanNJuan\User;
+use CoreProc\JuanNJuan\UserProfile;
 use Socialize;
 
 class OAuthController extends Controller {
@@ -27,6 +28,14 @@ class OAuthController extends Controller {
                 $user->name     = $user_social->getName();
                 $user->password = bcrypt(str_random());
                 $user->save();
+
+                $user_profile = new UserProfile;
+                $user_profile->first_name = $user_social->user['first_name'];
+                $user_profile->last_name = $user_social->user['last_name'];
+                $user_profile->gender = $user_social->user['gender'];
+                $user_profile->avatar = $user_social->avatar;
+                $user_profile->link = $user_social->user['link'];
+                $user->userProfile()->save($user_profile);
             }
 
             return redirect('/');

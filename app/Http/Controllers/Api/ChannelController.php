@@ -8,7 +8,6 @@ use CoreProc\JuanNJuan\Http\Requests;
 use CoreProc\JuanNJuan\Services\Error;
 use Exception;
 use Geocoder;
-use Request;
 use Response;
 
 class ChannelController extends Controller {
@@ -18,18 +17,13 @@ class ChannelController extends Controller {
      *
      * @return Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->has('country')) {
-            $channels = Channel::all()->load('user');
-        }
+        $channels = Channel::all()->load('user');
 
         return \Response::json($channels);
     }
 
-    /**
-     * @param \CoreProc\JuanNJuan\Http\Requests\ChannelRequest $request
-     */
     public function create(Requests\ChannelRequest $request)
     {
         try {
@@ -48,6 +42,7 @@ class ChannelController extends Controller {
             $channel = Channel::firstOrNew([
                 'user_id' => Auth::id()
             ]);
+            $channel->user_id = Auth::id();
             $channel->fill($request->all());
             $channel->password = bcrypt($channel->password);
             if (isset($country_code)) {
@@ -59,54 +54,8 @@ class ChannelController extends Controller {
         }
 
         return Response::json([
-            'ok' => $channel
+            'ok' => $channel->load('user')
         ]);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function update($id)
-    {
-        //
     }
 
     /**

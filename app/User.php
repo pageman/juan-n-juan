@@ -50,7 +50,17 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+    protected $appends = ['avatar'];
+
     public function channels() {
         return $this->belongsToMany('Channels');
+    }
+
+    public function getAvatarAttribute() {
+        return $this->userProfile->avatar;
+    }
+
+    public function userProfile() {
+        return $this->hasOne('CoreProc\JuanNJuan\UserProfile');
     }
 }

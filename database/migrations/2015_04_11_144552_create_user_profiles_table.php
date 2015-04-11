@@ -17,6 +17,9 @@ class CreateUserProfilesTable extends Migration {
 			$table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('avatar');
+            $table->string('link');
+            $table->string('gender');
             $table->integer('user_id', false, true);
             $table->foreign('user_id')->references('id')->on('users');
 			$table->timestamps();
