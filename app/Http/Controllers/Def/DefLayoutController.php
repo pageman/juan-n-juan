@@ -1,10 +1,12 @@
-<?php namespace CoreProc\JuanNJuan\Http\Controllers;
+<?php namespace CoreProc\JuanNJuan\Http\Controllers\Def;
 
-class HomeController extends Controller {
+use \CoreProc\JuanNJuan\Http\Controllers;
+
+class DefLayoutController extends Controllers\DefGroupController {
 
 	/*
 	|--------------------------------------------------------------------------
-	| Home Controller
+	| Default Layout Controller
 	|--------------------------------------------------------------------------
 	|
 	| This controller renders your application's "dashboard" for users that
@@ -20,7 +22,7 @@ class HomeController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth');
+		//$this->middleware('auth');
 	}
 
 	/**
@@ -30,7 +32,7 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		return view('juannjuan.default.default.home');
 	}
 
 }

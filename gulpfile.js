@@ -12,5 +12,9 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass("style.sass");
+    mix
+        .sass("style.sass", false, { indentedSyntax: true })
+        .scripts([
+            "sample"
+        ], "public/js/script.js");
 });
