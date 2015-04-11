@@ -11,11 +11,9 @@
 |
 */
 
-Route::get('/', 'ViewController@viewHome');
+Route::get('/', 'DefaultViewController@viewHome');
 
-/*
-Route::get('home', 'HomeController@index');
-*/
+Route::get('session', 'DefaultViewController@viewSession');
 
 Route::controllers([
     'auth'     => 'Auth\AuthController',

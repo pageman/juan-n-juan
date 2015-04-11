@@ -1,25 +1,18 @@
 <?php namespace CoreProc\JuanNJuan\Http\Controllers;
 
 class ViewController extends Controller {
-    private $view;
 
-    private function makeView($id, $title) {
-        $this->view->id = $id;
-        $this->view->title = $title;
-        return view("juannjuan.{$this->view->group}.{$this->view->layout}.{$id}", [
-            'view' => $this->view,
-        ]);
-    }
+    protected $app;
 
     public function __construct()
     {
-        $this->view = new \stdClass;
-        $this->view->group = 'default';
-        $this->view->layout = 'default';
+        $this->__initializeView();
     }
 
-    public function viewHome()
+    protected function __initializeView()
     {
-        return $this->makeView('home', "Home");
+        $this->app = new \stdClass;
+        $this->app->name = "Juan N Juan";
     }
+
 }

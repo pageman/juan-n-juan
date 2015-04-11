@@ -1,0 +1,62 @@
+@mixin jnj__paneling($top, $right, $bottom: $top, $left: $right)
+  padding: $top $right $bottom $left
+  width: 100%
+  height: 100%
+  position: relative
+  > .paneling-body
+    width: 100%
+    height: 100%
+  > .paneling-header, > .paneling-footer, > .paneling-sidebar
+    position: absolute
+  > .paneling-header, .paneling-sidebar
+    top: 0
+  > .paneling-header
+    height: $top
+  > .paneling-sidebar.paneling-sidebar--left
+    width: $left
+  > .paneling-footer
+    bottom: 0
+    height: $bottom
+  > .paneling-header, .paneling-footer, .paneling-sidebar.paneling-sidebar--left
+    left: 0
+  > .paneling-sidebar.paneling-sidebar--right
+    right: 0
+    width: $right
+  > .paneling-header, >.paneling-footer
+    width: 100%
+  > .paneling-sidebar
+    height: 100%
+
+@mixin jnj__paneling-scroll--x($body, $top, $right, $bottom: $top, $left: $right)
+  @if($body == true)
+    > .paneling-body
+      overflow-x: auto
+  @if($top == true)
+    > .paneling-header
+      overflow-x: auto
+  @if($right == true)
+    > .paneling-sidebar.paneling-sidebar--right
+      overflow-x: auto
+  @if($bottom == true)
+    > .paneling-footer
+      overflow-x: auto
+  @if($left == true)
+    > .paneling-sidebar.paneling-sidebar--left
+      overflow-x: auto
+
+@mixin jnj__paneling-scroll--y($body, $top, $right, $bottom: $top, $left: $right)
+  @if($body == true)
+    > .paneling-body
+      overflow-y: auto
+  @if($top == true)
+    > .paneling-header
+      overflow-y: auto
+  @if($right == true)
+    > .paneling-sidebar.paneling-sidebar--right
+      overflow-y: auto
+  @if($bottom == true)
+    > .paneling-footer
+      overflow-y: auto
+  @if($left == true)
+    > .paneling-sidebar.paneling-sidebar--left
+      overflow-y: auto
