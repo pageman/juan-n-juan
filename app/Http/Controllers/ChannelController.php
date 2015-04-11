@@ -7,6 +7,7 @@ use CoreProc\JuanNJuan\Services\Error;
 use Exception;
 use Geocoder;
 use Response;
+use Auth;
 
 class ChannelController extends Controller {
 
@@ -40,10 +41,11 @@ class ChannelController extends Controller {
         $country_code = @($country_code) ?: 608;
 
         try {
-            $channel = new Channel;
+            $channel = Channel::firstOrNew([
+                'user_id' => Auth::id()
+            ]);
             $channel->fill($request->all());
             $channel->password = bcrypt($channel->password);
-            $channel->user_id  = \Auth::id();
             if (isset($country_code)) {
                 $channel->country_id = Country::where('country_code', $country_code)->first()->id;
             }
