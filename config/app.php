@@ -153,6 +153,7 @@ return [
         'Collective\Html\HtmlServiceProvider',
         'Laravel\Socialite\SocialiteServiceProvider',
         'Webpatser\Countries\CountriesServiceProvider',
+        'Toin0u\Geocoder\GeocoderServiceProvider',
     ],
 
     /*
@@ -207,6 +208,7 @@ return [
         'Debugbar'  => 'Barryvdh\Debugbar\Facade',
         'Socialize' => 'Laravel\Socialite\Facades\Socialite',
         'Countries' => 'Webpatser\Countries\CountriesFacade',
+        'Geocoder'  => 'Toin0u\Geocoder\Facade\Geocoder',
     ],
 
 ];

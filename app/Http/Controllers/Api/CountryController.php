@@ -1,23 +1,21 @@
-<?php namespace CoreProc\JuanNJuan\Http\Controllers;
+<?php namespace CoreProc\JuanNJuan\Http\Controllers\Api;
 
-use CoreProc\JuanNJuan\Channel;
 use CoreProc\JuanNJuan\Http\Requests;
 use CoreProc\JuanNJuan\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use CoreProc\JuanNJuan\Country;
 
-class ChannelController extends Controller {
+class CountryController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function getIndex()
+	public function index()
 	{
-		$channels = Channel::all();
-
-        return \Response::json($channels);
+		return Country::all();
 	}
 
 	/**

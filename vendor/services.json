@@ -32,7 +32,8 @@
         "Zizaco\\Entrust\\EntrustServiceProvider",
         "Collective\\Html\\HtmlServiceProvider",
         "Laravel\\Socialite\\SocialiteServiceProvider",
-        "Webpatser\\Countries\\CountriesServiceProvider"
+        "Webpatser\\Countries\\CountriesServiceProvider",
+        "Toin0u\\Geocoder\\GeocoderServiceProvider"
     ],
     "eager": [
         "Barryvdh\\Debugbar\\ServiceProvider",
@@ -53,7 +54,8 @@
         "CoreProc\\JuanNJuan\\Providers\\EventServiceProvider",
         "CoreProc\\JuanNJuan\\Providers\\RouteServiceProvider",
         "Zizaco\\Entrust\\EntrustServiceProvider",
-        "Webpatser\\Countries\\CountriesServiceProvider"
+        "Webpatser\\Countries\\CountriesServiceProvider",
+        "Toin0u\\Geocoder\\GeocoderServiceProvider"
     ],
     "deferred": {
         "command.app.name": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",

@@ -16,6 +16,7 @@ class CreateChannelsTable extends Migration {
             $table->increments('id');
             $table->string('name');
             $table->string('desc');
+            $table->string('password');
             $table->integer('country_id', false);
             $table->foreign('country_id')->references('id')->on('countries');
             $table->integer('user_id', false, true);
