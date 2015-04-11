@@ -37,11 +37,17 @@ return [
     'facebook' => [
         'client_id'     => env('FACEBOOK_CLIENT_ID', '806954689360296'),
         'client_secret' => env('FACEBOOK_SECRET', 'b59545b6d0cf7862737beda9d5b835fb'),
-        'redirect'      => url('oauth/callback')
+        'redirect'      => url('oauth/facebook/callback')
+    ],
+
+    'twitter'  => [
+        'client_id'     => env('TWITTER_CLIENT_ID', 'bzBLoUhuOoelmc13jZPPxg'),
+        'client_secret' => env('TWITTER_SECRET', 'MDjZhYHmExgYdPUWzzAMsQE3gDR5Wze1NhjbThgB0'),
+        'redirect'      => url('oauth/twitter/callback')
     ],
 
     'peerjs'   => [
-        'api_key' => 'a70rdfino7ehr529'
-    ]
+    'api_key' => 'a70rdfino7ehr529'
+]
 
 ];

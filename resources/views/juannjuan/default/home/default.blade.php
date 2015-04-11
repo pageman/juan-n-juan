@@ -7,10 +7,19 @@
       <div>
         <div class="jumbotron">
           <div class="container">
-            <p class="h1">Juan <span class="brand--logo">N</span> Juan</p>
-            <a class="btn btn-primary btn-lg" data-ui-sref="jnj.channels">
-                <span class="fa fa-facebook-f"></span> Connect with Facebook
-            </a>
+            <div class="row">
+                <span class="h1 juan">Juan</span> <span class="h1 brand--logo">N</span> <span class="h1 juan">Juan</span>
+            </div>
+              <br>
+            <div class="row">
+                <a class="btn btn-primary btn-lg" data-ui-sref="jnj.channels" href="oauth/facebook">
+                    <span class="fa fa-facebook-square"></span>&nbsp;&nbsp; Facebook
+                </a> or
+                <a class="btn btn-primary btn-lg" data-ui-sref="jnj.channels" href="oauth/twitter">
+                    <span class="fa fa-twitter-square"></span>&nbsp;&nbsp; Twitter
+                </a>
+            </div>
+              <p><span class="container-fluid" id="home--menu">Terms | Privacy</span></p>
           </div>
         </div>
       </div>
