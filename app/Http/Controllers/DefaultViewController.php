@@ -1,17 +1,21 @@
 <?php namespace CoreProc\JuanNJuan\Http\Controllers;
 
+use CoreProc\JuanNJuan\Channel;
+
 class DefaultViewController extends ViewController {
 
     private $view;
 
-    private function makeView($id, $title, $data = []) {
+    private function makeView($id, $title, $data = [])
+    {
         $view_args = [
             'view' => $this->view,
-            'app' => $this->app,
+            'app'  => $this->app,
         ];
 
-        $this->view->id = $id;
+        $this->view->id    = $id;
         $this->view->title = $title;
+
         return view("juannjuan.{$this->view->group}.{$id}.{$this->view->layout}", array_merge($view_args, $data));
     }
 
@@ -19,8 +23,8 @@ class DefaultViewController extends ViewController {
     {
         $this->__initializeView();
 
-        $this->view = new \stdClass;
-        $this->view->group = 'default';
+        $this->view         = new \stdClass;
+        $this->view->group  = 'default';
         $this->view->layout = 'default';
     }
 
@@ -36,6 +40,9 @@ class DefaultViewController extends ViewController {
 
     public function viewSession($sessionId)
     {
-        return $this->makeView('session', "Session", [ "session_id" => $sessionId ]);
+        Channel::findOrFail($sessionId);
+
+        return $this->makeView('session', "Session", ["session_id" => $sessionId]);
+
     }
 }
