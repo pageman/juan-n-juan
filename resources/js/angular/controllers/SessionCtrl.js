@@ -25,15 +25,17 @@
                     //port: 9001
                 });
 
-                peer.on('call', function(call) {
+                peer.on("open", function() {
+                    peer.on('call', function(call) {
 
-                    console.log(call);
+                        console.log(call);
 
-                    call.answer(window.localStream);
+                        call.answer(window.localStream);
 
-                    call.on('stream', function(stream) {
-                        angular.element('#session__peer-main')
-                            .prop('src', URL.createObjectURL(stream));
+                        call.on('stream', function(stream) {
+                            angular.element('#session__peer-main')
+                                .prop('src', URL.createObjectURL(stream));
+                        });
                     });
                 });
             }
@@ -45,13 +47,15 @@
                     //port: 9001
                 });
 
-                var call = peer.call(ctrl.channel.peer_key, window.localStream);
+                peer.on("open", function() {
+                    peer.call(ctrl.channel.peer_key, window.localStream);
 
-                console.log(call);
+                    console.log(call);
 
-                call.on('stream', function(stream) {
-                    angular.element('#session__peer-main')
-                        .prop('src', URL.createObjectURL(stream));
+                    call.on('stream', function(stream) {
+                        angular.element('#session__peer-main')
+                            .prop('src', URL.createObjectURL(stream));
+                    });
                 });
             }
 
