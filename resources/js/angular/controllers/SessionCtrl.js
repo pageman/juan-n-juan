@@ -27,15 +27,17 @@
                 });
 
                 peer.on("open", function() {
-                    peer.on('call', function(call) {
+                    loadStream(function(stream) {
+                        angular.element('#session__you')
+                            .prop('src', URL.createObjectURL(stream));
 
-                        console.log(call);
+                        peer.on('call', function(call) {
+                            call.answer(window.localStream);
 
-                        call.answer(window.localStream);
-
-                        call.on('stream', function(stream) {
-                            angular.element('#session__peer-main')
-                                .prop('src', URL.createObjectURL(stream));
+                            call.on('stream', function(stream) {
+                                angular.element('#session__peer-main')
+                                    .prop('src', URL.createObjectURL(stream));
+                            });
                         });
                     });
                 });
@@ -49,22 +51,20 @@
                     //port: 9001
                 });
 
-                var call;
-
-                var makeCall = function() {
-                    call = peer.call(ctrl.channel.peer_key, window.localStream);
-
-                    call.on('stream', function(stream) {
-                        angular.element('#session__peer-main')
+                peer.on("open", function() {
+                    loadStream(function(stream) {
+                        angular.element('#session__you')
                             .prop('src', URL.createObjectURL(stream));
+
+                        var call = peer.call(ctrl.channel.peer_key, stream);
+
+                        call.on('stream', function(stream) {
+                            angular.element('#session__peer-main')
+                                .prop('src', URL.createObjectURL(stream));
+                        })
                     });
-                };
-
-                peer.on("open", makeCall);
-
-                peer.on('error', function(err){
-                    makeCall();
                 });
+
             }
 
             /*
@@ -77,6 +77,12 @@
                 */
         };
 
+        var loadStream = function(cb) {
+            navigator.getUserMedia({video: true, audio: true}, cb, function(err) {
+                console.log('Failed to get local stream' ,err);
+            });
+        };
+
         angular.element(function() {
             ApiService
                 .getChannels()
@@ -87,15 +93,6 @@
 
                     ctrl.channels = response.ok;
                 });
-
-            navigator.getUserMedia({video: true, audio: true}, function(stream) {
-                angular.element('#session__you')
-                    .prop('src', URL.createObjectURL(stream));
-
-                window.localStream = stream;
-            }, function(err) {
-                console.log('Failed to get local stream' ,err);
-            });
         });
     };
 
