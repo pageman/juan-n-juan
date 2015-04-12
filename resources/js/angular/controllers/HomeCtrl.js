@@ -1,6 +1,6 @@
 /*global angular*/
 
-(function(angular, undefined) {
+(function(angular, Peer, undefined) {
     "use strict";
 
     var HomeCtrl = function($scope, $modal, ApiService, geolocation) {
