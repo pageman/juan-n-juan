@@ -2,7 +2,7 @@
 
 @section('body')
   @if(Auth::check())
-  <div data-ng-controller="SessionCtrl as ctrl" data-ng-init="
+  <div data-ng-init="
     ctrl.you = {
       id: {{ Auth::id() }}
     };
@@ -12,7 +12,9 @@
         id: {{ $channel->user->id }}
       }
     };
-    ctrl.selectChannel({{ $session_id }})
+    ctrl.current = {
+      channel: {{ $session_id }}
+    };
   ">
     <div class="session__stream paneling-container" data-ng-class="{ 'list-visible': ctrl.listVisible }">
       <div class="paneling-sidebar paneling-sidebar--left" id="view__channel-list">
@@ -20,18 +22,23 @@
           <div class="paneling-header">
             <div class="container-fluid">
               <button class="close visible-smaller-16-by-9" data-ng-click="ctrl.listVisible = false"><i class="fa fa-fw fa-times"></i></button>
-              <h2>Channels</h2>
+              <h2>
+                Channels
+                <small><a href="{{ url('channels') }}">All</a></small>
+              </h2>
             </div>
           </div>
           <div class="paneling-body">
-            <a href="#" data-ng-click="$event.preventDefault(); ctrl.selectChannel(channel.id)" data-ng-repeat="channel in ctrl.channels">
+            <a href="#" data-ng-href="/session/@{{ channel.id }}" data-ng-class="{ 'active': channel.id == ctrl.current.channel }" data-ng-repeat="channel in ctrl.channels" data-ng-cloak>
               <div class="media">
                 <div class="media-left">
                   <img class="media-object" src="" data-ng-src="@{{ channel.user.user_profile.avatar }}" alt="@{{ channel.name }}">
                 </div>
                 <div class="media-body">
+                  <p data-ng-bind="channel.country.name" class="text-muted pull-right hidden-sm hidden-xs"></p>
                   <p class="h3 media-heading" data-ng-bind="channel.name">Media heading</p>
                   <p data-ng-bind="channel.desc"></p>
+                  <p data-ng-bind="channel.country.name" class="text-muted visible-sm visible-xs"></p>
                 </div>
               </div>
             </a>

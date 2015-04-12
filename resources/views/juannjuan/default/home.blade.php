@@ -1,7 +1,7 @@
 @extends('juannjuan.default')
 
 @section('content')
-  <div id="view__viewport">
+  <div id="view__viewport" data-ng-controller="HomeCtrl as homeCtrl">
     <h1 class="sr-only">{{ $view->title }}</h1>
 
     {{--<nav class="navbar navbar-default navbar-fixed-top">--}}

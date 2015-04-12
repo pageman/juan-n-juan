@@ -18,6 +18,34 @@
 
 @yield('content')
 
+@section('modals')
+  <script type="text/ng-template" id="modal-new-channel.html">
+    <form method="post">
+      <div class="modal-header">
+        <h2 class="modal-title h4">Create New Channel</h2>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" name="peer_key" data-ng-model="homeCtrl.newChannel.peer_key">
+        <input type="hidden" name="latitude" data-ng-model="homeCtrl.newChannel.latitude">
+        <input type="hidden" name="longitude" data-ng-model="homeCtrl.newChannel.longitude">
+
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" name="name" data-ng-model="homeCtrl.newChannel.name">
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea class="form-control" name="desc" data-ng-model="homeCtrl.newChannel.desc"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="submit" data-ng-click="$event.preventDefault(); homeCtrl.submitNewChannelForm();">Submit</button>
+      </div>
+    </form>
+  </script>
+@show
+
 <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@
     width: 100%
     height: 100%
 .session__stream.paneling-container
+  transition: all 500ms
   > .paneling-footer .paneling-container
     @include jnj__paneling(0, 250px, 0, 0)
     video
@@ -22,7 +23,7 @@
       border-radius: 999px
       font-size: 150%
       &.btn-link
-        background-color: #000
+        background-color: rgba(0,0,0,0.5)
         padding: 10px 11px
     > .paneling-container
       @include jnj__paneling(75px, 0, 0)
@@ -47,10 +48,23 @@
   > .paneling-sidebar--left
     z-index: 1
     background-color: $body-bg
-    .media .media-object
-      height: 64px
+    transition: all 500ms
+    .paneling-body a
+      display: block
+      &:hover, &:focus
+        text-decoration: none
+        background-color: $list-group-hover-bg
+      &.active
+        background-color: $brand-primary
+        color: $list-group-active-text-color
+    .media
+      padding: 10px 15px
+      .media-object
+        height: 64px
+      .media-body > *
+        margin: 0
     .close
-      margin-top: 10px
+      margin-top: 5px
       border: 2px solid
       border-radius: 999px
       font-size: 150%

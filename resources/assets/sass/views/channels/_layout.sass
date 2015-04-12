@@ -10,8 +10,31 @@
         display: block
         > *
           display: block
-          padding: 10px 15px
+          &:hover, &:focus
+            background-color: $list-group-hover-bg
+            text-decoration: none
           p
             margin: 0
-      .media .media-object
-        height: 64px
+      .media
+        padding: 10px 15px
+        .media-object
+          height: 64px
+        .media-body > *
+          margin: 0
+  .paneling-header
+    h2
+      position: relative
+    .view__back
+      background-color: rgba(255,255,255,0.5)
+      padding: 7px 11px
+      border: 2px solid
+      border-radius: 999px
+      font-size: 150%
+      margin: 15px 15px 0 0
+      width: 48px
+      text-align: center
+//@media (max-width: $screen-xs-max)
+//  .paneling-container
+//    .paneling-header
+//      .view__back
+//        margin-left: 0
