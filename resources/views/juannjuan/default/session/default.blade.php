@@ -6,6 +6,12 @@
     ctrl.you = {
       id: {{ Auth::id() }}
     };
+    ctrl.channel = {
+      peer_key: '{{ $channel->peer_key }}',
+      owner: {
+        id: {{ $channel->user->id }}
+      }
+    };
     ctrl.selectChannel({{ $session_id }})
   ">
     <div class="session__stream paneling-container" data-ng-class="{ 'list-visible': ctrl.listVisible }">

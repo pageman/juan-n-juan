@@ -15,23 +15,42 @@
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
         ctrl.selectChannel = function(thatId) {
+            var isYourChannel = ctrl.channel.owner.id === ctrl.you.id;
+
+            if(isYourChannel) {
+                peer = new Peer(ctrl.channel.peer_key, {
+                    key: 'iotmf53jop1iqkt9'
+                    //host: "yui-chan",
+                    //port: 9001
+                });
+
+                peer.on('call', function(c) {
+                    console.log(c);
+                });
+            }
+            else {
+                peer = new Peer({
+                    key: 'iotmf53jop1iqkt9'
+                    //host: "yui-chan",
+                    //port: 9001
+                });
+
+                var call = peer.call(ctrl.channel.peer_key, window.localStream);
+
+                call.on('stream', function(stream) {
+                    angular.element('#session__peer-main')
+                        .prop('src', URL.createObjectURL(stream));
+                });
+            }
+
+            /*
             ApiService
                 .sendChannel({
                     peer: peer.id,
                     user: ctrl.you.id,
                     channel: thatId
                 });
-
-            var call = peer.call(thatId, window.localStream);
-
-            call.on('stream', function(stream) {
-                angular.element('#session__peer-main')
-                    .prop('src', URL.createObjectURL(stream));
-            });
-
-            peer.on('call', function(c) {
-                console.log(c);
-            });
+                */
         };
 
         angular.element(function() {
@@ -44,12 +63,6 @@
 
                     ctrl.channels = response.ok;
                 });
-
-            peer = new Peer(ctrl.you.id, {
-                key: 'iotmf53jop1iqkt9',
-                host: "yui-chan",
-                port: 9001
-            });
 
             navigator.getUserMedia({video: true, audio: true}, function(stream) {
                 angular.element('#session__you')
