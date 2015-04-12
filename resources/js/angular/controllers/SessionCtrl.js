@@ -20,7 +20,8 @@
             if(isYourChannel) {
                 console.log("This is your channel!");
                 peer = new Peer(ctrl.channel.peer_key, {
-                    key: 'iotmf53jop1iqkt9'
+                    key: 'iotmf53jop1iqkt9',
+                    debug: 3,
                     //host: "yui-chan",
                     //port: 9001
                 });
@@ -42,20 +43,27 @@
             else {
                 console.log("This is not your channel!");
                 peer = new Peer({
-                    key: 'iotmf53jop1iqkt9'
+                    key: 'iotmf53jop1iqkt9',
+                    debug: 3,
                     //host: "yui-chan",
                     //port: 9001
                 });
 
-                peer.on("open", function() {
-                    var call = peer.call(ctrl.channel.peer_key, window.localStream);
+                var call;
 
-                    console.log(call);
+                var makeCall = function() {
+                    call = peer.call(ctrl.channel.peer_key, window.localStream);
 
                     call.on('stream', function(stream) {
                         angular.element('#session__peer-main')
                             .prop('src', URL.createObjectURL(stream));
                     });
+                };
+
+                peer.on("open", makeCall);
+
+                peer.on('error', function(err){
+                    makeCall();
                 });
             }
 
