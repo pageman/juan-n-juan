@@ -88,9 +88,17 @@
 @media (max-width: $screen-md-max)
   .session__stream.paneling-container
     @include jnj__paneling(0, 0, 0, $sidebar-width-md)
+    > .paneling-body > .paneling-container
+      padding-top: 0
+      > .paneling-header
+        display: none
 @media (min-width: $screen-lg-min)
   .session__stream.paneling-container
     @include jnj__paneling(0, 0, 0, $sidebar-width-lg)
+    > .paneling-body > .paneling-container
+      padding-top: 0
+      > .paneling-header
+        display: none
 @media (max-width: $screen-xs-max)
   .session__stream.paneling-container
     padding-left: 0

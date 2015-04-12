@@ -40,9 +40,9 @@
       </div>
       <div class="paneling-body">
         <div class="paneling-container">
-          <div class="paneling-header">
+          <div class="paneling-header visible-smaller-16-by-9">
             <div class="container-fluid">
-              <button class="btn btn-link visible-smaller-16-by-9" data-ng-class="{ 'active': ctrl.listVisible }" data-ng-click="ctrl.listVisible = true">
+              <button class="btn btn-link" data-ng-class="{ 'active': ctrl.listVisible }" data-ng-click="ctrl.listVisible = true">
                 <i class="fa fa-fw fa-list"></i>
               </button>
             </div>
