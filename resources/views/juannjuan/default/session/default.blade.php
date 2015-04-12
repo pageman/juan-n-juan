@@ -93,7 +93,7 @@
             <a href="#" data-ng-href="/session/@{{ channel.id }}" data-ng-class="{ 'active': channel.id == ctrl.current.channel.id }" data-ng-repeat="channel in ctrl.channels" data-ng-cloak>
               <div class="media">
                 <div class="media-left">
-                  <img class="media-object" src="" data-ng-src="@{{ channel.user.user_profile.avatar }}" alt="@{{ channel.name }} Channel">
+                  <img class="media-object img-circle" src="" data-ng-src="@{{ channel.user.user_profile.avatar }}" alt="@{{ channel.name }} Channel">
                 </div>
                 <div class="media-body">
                   <p data-ng-bind="channel.country.name" class="text-muted pull-right hidden-sm hidden-xs"></p>
