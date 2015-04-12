@@ -28,6 +28,8 @@ elixir(function(mix) {
 
             "../../vendor/bower_components/peerjs/peer.js",
 
+            "hack/alert.js",
+
             "angular/pre.js",
             "angular/config/restangular.js",
 

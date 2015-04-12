@@ -1,7 +1,7 @@
 @extends('juannjuan.default.home')
 
 @section('body')
-  <div>
+  <div class="bgvid-append">
     <section class="section--splash">
       <h2 class="sr-only">Juan N Juan &mdash; Connected N _______.</h2>
       <div>
@@ -31,10 +31,10 @@
         </div>
       </div>
     </section>
-  </div>
 
-  <video autoplay loop poster="{{ asset('img/jnj.jpg') }}" id="bgvid">
-    <source src="{{ asset('video/bg-movie.webm') }}" type="video/webm">
-    <source src="{{ asset('video/bg-movie.mp4') }}" type="video/mp4">
-  </video>
+    <video autoplay loop poster="{{ asset('img/jnj.jpg') }}" id="bgvid">
+      <source src="{{ asset('video/bg-movie.webm') }}" type="video/webm">
+      <source src="{{ asset('video/bg-movie.mp4') }}" type="video/mp4">
+    </video>
+  </div>
 @stop

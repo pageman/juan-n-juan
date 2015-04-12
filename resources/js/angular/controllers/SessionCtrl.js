@@ -1,7 +1,7 @@
 /*global angular*/
 /*global Peer*/
 
-(function(angular, Peer, undefined) {
+(function(angular, Peer, alert, undefined) {
     "use strict";
 
     var SessionCtrl = function(ApiService, $timeout) {
@@ -17,6 +17,11 @@
 
         ctrl.connect = function(thatId) {
             var isYourChannel = ctrl.channel.owner.id === ctrl.you.id;
+
+            if(!ctrl.channel.peer_key) {
+                alert("Channel created without a key. Other people will be unable to connect!");
+                throw new Error("Channel created without a key. Other people will be unable to connect!");
+            }
 
             if(isYourChannel) {
                 //console.log("This is your channel!");
@@ -104,6 +109,7 @@
                 .getChannels()
                 .then(function(response) {
                     if(!response.ok) {
+                        alert("Unable to obtain channel list.");
                         throw new Error("Unable to obtain channel list.");
                     }
 
@@ -119,4 +125,4 @@
     angular
         .module("jnj.controllers")
         .controller("SessionCtrl", SessionCtrl);
-})(angular, Peer);
+})(angular, Peer, alertHack);

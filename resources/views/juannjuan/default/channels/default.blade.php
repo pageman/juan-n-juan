@@ -6,7 +6,11 @@
       <div class="container">
         <h2 class="pull-left">Channels</h2>
         <div class="h2 pull-right">
-          <button class="btn btn-default btn-large" data-ng-click="homeCtrl.openNewChannelModal()">Add Channel</button>
+          @if(\CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->exists())
+            <a class="btn btn-default btn-large" href="{{ url('session/' . \CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->first()->id) }}">Go to Channel</a>
+          @else
+            <button class="btn btn-default btn-large" data-ng-click="homeCtrl.openNewChannelModal()">Add Channel</button>
+          @endif
         </div>
       </div>
     </header>
@@ -32,4 +36,9 @@
       </div>
     </div>
   </div>
+
+  <video autoplay loop poster="{{ asset('img/jnj.jpg') }}" id="bgvid">
+    <source src="{{ asset('video/bg-movie.webm') }}" type="video/webm">
+    <source src="{{ asset('video/bg-movie.mp4') }}" type="video/mp4">
+  </video>
 @stop

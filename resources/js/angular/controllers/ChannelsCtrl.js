@@ -1,6 +1,6 @@
 /*global angular*/
 
-(function(angular, undefined) {
+(function(angular, alert, undefined) {
     "use strict";
 
     var ChannelsCtrl = function(ApiService) {
@@ -11,6 +11,7 @@
                 .getChannels()
                 .then(function(response) {
                     if(!response.ok) {
+                        alert("Unable to obtain channel list.");
                         throw new Error("Unable to obtain channel list.");
                     }
 
@@ -24,4 +25,4 @@
     angular
         .module("jnj.controllers")
         .controller("ChannelsCtrl", ChannelsCtrl);
-})(angular);
+})(angular, alertHack);

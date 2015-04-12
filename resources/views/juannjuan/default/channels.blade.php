@@ -1,7 +1,7 @@
 @extends('juannjuan.default')
 
 @section('content')
-  <div id="view__viewport" data-ng-controller="ChannelsCtrl as ctrl">
+  <div id="view__viewport" class="bgvid-append" data-ng-controller="ChannelsCtrl as ctrl">
     <h1 class="sr-only">{{ $view->title }}</h1>
 
     {{--<nav class="navbar navbar-default navbar-fixed-top">--}}

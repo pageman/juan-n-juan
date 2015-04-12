@@ -4,7 +4,8 @@
   @if(Auth::check())
   <div data-ng-init="
     ctrl.you = {
-      id: {{ Auth::id() }}
+      id: {{ Auth::id() }},
+      avatar: '{{ \CoreProc\JuanNJuan\User::find(Auth::id())->userProfile->avatar }}'
     };
     ctrl.channel = {
       peer_key: '{{ $channel->peer_key }}',
@@ -59,10 +60,14 @@
             <div class="inset">
               <div class="paneling-container">
                 <div class="paneling-sidebar paneling-sidebar--left">
-                  <button class="btn btn-link pull-left"
+                  <button class="btn btn-link"
                           data-ng-style="{ 'color': ctrl.muted ? '#ff0000' : null }"
                           data-ng-click="ctrl.muted = !ctrl.muted">
                     <i class="fa fa-fw" data-ng-class="{ 'fa-volume-up': !ctrl.muted, 'fa-volume-off': ctrl.muted }"></i>
+                  </button>
+
+                  <button class="btn btn-avatar">
+                    <img data-ng-src="@{{ ctrl.you.avatar }}">
                   </button>
                 </div>
                 <div class="paneling-body">

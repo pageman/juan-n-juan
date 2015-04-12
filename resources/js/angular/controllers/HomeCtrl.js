@@ -1,7 +1,7 @@
 /*global angular*/
 /*global Peer*/
 
-(function(angular, Peer, undefined) {
+(function(angular, Peer, alert, undefined) {
     "use strict";
 
     var HomeCtrl = function($scope, $modal, ApiService, geolocation) {
@@ -22,6 +22,7 @@
                 .createChannel(ctrl.newChannel)
                 .then(function(response) {
                     if(!response.ok) {
+                        alert("Cannot create channel.");
                         throw new Error("Cannot create channel");
                     }
 
@@ -35,8 +36,9 @@
                 .then(function(response) {
                     ctrl.newChannel.latitude = response.coords.latitude;
                     ctrl.newChannel.longitude = response.coords.longitude;
-
-                    console.log(ctrl.newChannel);
+                }, function() {
+                    alert("Unable to load your location.");
+                    throw new Error("Unable to load your location.");
                 });
 
             //var peer = new Peer({
@@ -51,6 +53,7 @@
 
             peer.on('open', function(id) {
                 ctrl.newChannel.peer_key = id;
+                peer.destroy();
             });
         });
     };
@@ -60,4 +63,4 @@
     angular
         .module("jnj.controllers")
         .controller("HomeCtrl", HomeCtrl);
-})(angular, Peer);
+})(angular, Peer, alertHack);
