@@ -21,7 +21,7 @@
             if(isYourChannel) {
                 //console.log("This is your channel!");
                 peer = new Peer(ctrl.channel.peer_key, {
-                    key: 'iotmf53jop1iqkt9'
+                    key: 'iotmf53jop1iqkt9',
                     debug: 3,
                     //host: "yui-chan",
                     //port: 9001
@@ -50,7 +50,7 @@
             else {
                 //console.log("This is not your channel!");
                 peer = new Peer({
-                    key: 'iotmf53jop1iqkt9'
+                    key: 'iotmf53jop1iqkt9',
                     debug: 3,
                     //host: "yui-chan",
                     //port: 9001
