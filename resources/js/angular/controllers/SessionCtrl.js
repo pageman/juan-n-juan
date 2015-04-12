@@ -49,6 +49,11 @@
                                     .prop('src', URL.createObjectURL(stream));
                             });
                         });
+
+                        peer.on('disconnect', function() {
+                            angular.element("#session__inset, #session__peer-main")
+                                .css("opacity", 0);
+                        });
                     });
                 });
             }
@@ -85,6 +90,11 @@
                                     .css("opacity", 1)
                                     .prop('src', URL.createObjectURL(stream));
                             });
+                        });
+
+                        peer.on('disconnect', function() {
+                            angular.element("#session__inset, #session__peer-main")
+                                .css("opacity", 0);
                         });
                     });
                 });
