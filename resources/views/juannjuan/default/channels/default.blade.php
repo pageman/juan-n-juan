@@ -16,7 +16,7 @@
     </header>
     <div class="paneling-body">
       <div class="container">
-        @if(\CoreProc\JuanNJuan\Channel::all()->count() > 0)
+        @if(\CoreProc\JuanNJuan\Channel::where('user_id', '<>', Auth::id())->count() > 0)
           <ul class="row" data-ng-cloak>
             <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3" data-ng-repeat="channel in ctrl.channels">
               <a data-ng-href="/session/@{{ channel.id }}">
