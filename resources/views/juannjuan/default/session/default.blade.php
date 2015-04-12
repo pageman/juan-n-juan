@@ -25,6 +25,46 @@
     };
   ">
     <div class="session__stream paneling-container" data-ng-class="{ 'list-visible': ctrl.listVisible }">
+      <div class="paneling-body">
+        <div class="centerbox">
+          <div>
+            <div>No contact.</div>
+          </div>
+        </div>
+        <div class="paneling-container">
+          <div class="paneling-header visible-smaller-16-by-9">
+            <div class="container-fluid">
+              <button class="btn btn-link" data-ng-class="{ 'active': ctrl.listVisible }" data-ng-click="ctrl.listVisible = true">
+                <i class="fa fa-fw fa-list"></i>
+              </button>
+            </div>
+          </div>
+          <div class="paneling-body">
+            <video id="session__peer-main" autoplay></video>
+            <div class="inset" id="session__inset" style="opacity: 0">
+              <div class="paneling-container">
+                <div class="paneling-header">
+                  <div class="container-fluid">
+                    <button class="btn btn-link btn-mute-toggle"
+                            data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top"
+                            data-ng-style="{ 'color': ctrl.muted ? '#ff0000' : null }"
+                            data-ng-click="ctrl.muted = !ctrl.muted">
+                      <i class="fa fa-fw" data-ng-class="{ 'fa-volume-up': !ctrl.muted, 'fa-volume-off': ctrl.muted }"></i>
+                    </button>
+
+                    <button class="btn btn-avatar" data-container="body" data-toggle="popover" data-trigger="click" data-placement="top">
+                      <img data-ng-src="@{{ ctrl.you.avatar }}">
+                    </button>
+                  </div>
+                </div>
+                <div class="paneling-body">
+                  <video id="session__you" autoplay data-ng-muted="ctrl.muted"></video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="paneling-sidebar paneling-sidebar--left" id="view__channel-list">
         <div class="paneling-container">
           <div class="paneling-header">
@@ -63,41 +103,6 @@
                 </div>
               </div>
             </a>
-          </div>
-        </div>
-      </div>
-      <div class="paneling-body">
-        <div class="paneling-container">
-          <div class="paneling-header visible-smaller-16-by-9">
-            <div class="container-fluid">
-              <button class="btn btn-link" data-ng-class="{ 'active': ctrl.listVisible }" data-ng-click="ctrl.listVisible = true">
-                <i class="fa fa-fw fa-list"></i>
-              </button>
-            </div>
-          </div>
-          <div class="paneling-body">
-            <video id="session__peer-main" autoplay></video>
-            <div class="inset">
-              <div class="paneling-container">
-                <div class="paneling-header">
-                  <div class="container-fluid">
-                    <button class="btn btn-link btn-mute-toggle"
-                            data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top"
-                            data-ng-style="{ 'color': ctrl.muted ? '#ff0000' : null }"
-                            data-ng-click="ctrl.muted = !ctrl.muted">
-                      <i class="fa fa-fw" data-ng-class="{ 'fa-volume-up': !ctrl.muted, 'fa-volume-off': ctrl.muted }"></i>
-                    </button>
-
-                    <button class="btn btn-avatar" data-container="body" data-toggle="popover" data-trigger="click" data-placement="top">
-                      <img data-ng-src="@{{ ctrl.you.avatar }}">
-                    </button>
-                  </div>
-                </div>
-                <div class="paneling-body">
-                  <video id="session__you" autoplay data-ng-muted="ctrl.muted"></video>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
