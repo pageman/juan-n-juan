@@ -18,6 +18,8 @@ elixir(function(mix) {
         .sass("style.sass", false, { indentedSyntax: true })
         .scripts([
             "../../vendor/bower_components/jquery/dist/jquery.js",
+            "hack/alert.js",
+
             "../../vendor/bower_components/lodash/lodash.js",
             "../../vendor/bower_components/modernizr/modernizr.js",
             "../../vendor/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js",
@@ -27,8 +29,6 @@ elixir(function(mix) {
             "../../vendor/bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js",
 
             "../../vendor/bower_components/peerjs/peer.js",
-
-            "hack/alert.js",
 
             "angular/pre.js",
             "angular/config/restangular.js",
