@@ -8,6 +8,7 @@
         <div class="jumbotron">
           <div class="container">
             <p class="h1">Juan <span class="brand--logo">N</span> Juan</p>
+            <p class="h2">Free and fast one-on-one video calling with your peers and loved ones, here and abroad</p>
             <div class="view__cta">
               @if(Auth::check())
                 <p class="lead">
@@ -46,6 +47,7 @@
         <h2 class="modal-title h4">Create New Channel</h2>
       </div>
       <div class="modal-body">
+        <input type="hidden" name="peer_key" data-ng-model="ctrl.newChannel.peer_key">
         <input type="hidden" name="latitude" data-ng-model="ctrl.newChannel.latitude">
         <input type="hidden" name="longitude" data-ng-model="ctrl.newChannel.longitude">
 

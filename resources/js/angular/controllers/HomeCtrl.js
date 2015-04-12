@@ -1,4 +1,5 @@
 /*global angular*/
+/*global Peer*/
 
 (function(angular, Peer, undefined) {
     "use strict";
@@ -37,6 +38,20 @@
 
                     console.log(ctrl.newChannel);
                 });
+
+            //var peer = new Peer({
+            //    key: 'iotmf53jop1iqkt9',
+            //    host: "yui-chan",
+            //    port: 9001
+            //});
+
+            var peer = new Peer({
+                key: 'iotmf53jop1iqkt9'
+            });
+
+            peer.on('open', function(id) {
+                ctrl.newChannel.peer_key = id;
+            });
         });
     };
 
@@ -45,4 +60,4 @@
     angular
         .module("jnj.controllers")
         .controller("HomeCtrl", HomeCtrl);
-})(angular);
+})(angular, Peer);
