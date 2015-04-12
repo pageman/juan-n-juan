@@ -11,9 +11,10 @@
             <p class="h2">Free and fast one-on-one video calling with your peers and loved ones, here and abroad.</p>
             <div class="view__cta">
               @if(Auth::check())
+                @if(\CoreProc\JuanNJuan\Channel::all()->count() > 0)
                 <a class="btn btn-primary btn-lg" href="{{ url('channels') }}">
                   <i class="fa fa-comments"></i>Find Channels
-                </a><a class="btn btn-primary btn-lg" href="#" data-ng-click="homeCtrl.openNewChannelModal()">
+                </a>@endif <a class="btn btn-primary btn-lg" href="#" data-ng-click="homeCtrl.openNewChannelModal()">
                   <i class="fa fa-comments"></i>Create Channel
                 </a>
               @else
