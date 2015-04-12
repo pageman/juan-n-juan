@@ -117,6 +117,25 @@
                 });
 
             ctrl.connect();
+
+            angular.element(function () {
+                angular.element('.btn-mute-toggle').popover({
+                    content: "Mute on/off"
+                });
+                angular.element('.btn-avatar[data-toggle="popover"]').popover({
+                    html: true,
+                    content: function() {
+                        var $content = $("<div>");
+
+                        var $a = $("<a>")
+                            .attr("href", "/auth/logout")
+                            .text("Logout")
+                            .appendTo($content);
+
+                        return $content.html();
+                    }
+                });
+            })
         });
     };
 

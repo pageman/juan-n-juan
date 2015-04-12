@@ -48,9 +48,11 @@
       bottom: 0
       right: 0
       > .paneling-container
-        @include jnj__paneling(0, 0, 0, 53px)
+        @include jnj__paneling(70px, 0, 0, 0)
         > .paneling-body
           padding-left: 15px
+        > .paneling-header
+          text-align: right
       video
         width: 100%
         height: 100%
@@ -107,7 +109,7 @@
         background-color: transparentize($brand-primary, 0.5)
         color: #fff
 .inset
-  height: 33%
+  height: 45%
   width: 25%
 @media (max-width: $screen-md-max)
   .session__stream.paneling-container
@@ -138,5 +140,5 @@
       > .paneling-container
         @include jnj__paneling(75px, 0, 0, 0)
   .inset
-    height: 33%
+    height: 45%
     width: 50%

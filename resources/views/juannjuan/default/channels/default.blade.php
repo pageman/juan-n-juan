@@ -7,10 +7,11 @@
         <h2 class="pull-left">Channels</h2>
         <div class="h2 pull-right">
           @if(\CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->exists())
-            <a class="btn btn-primary btn-large" href="{{ url('session/' . \CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->first()->id) }}">Go to Channel</a>
+            <a class="btn btn-primary" href="{{ url('session/' . \CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->first()->id) }}">Go to Channel</a>
           @else
-            <button class="btn btn-primary btn-large" data-ng-click="homeCtrl.openNewChannelModal()">Add Channel</button>
+            <button class="btn btn-primary" data-ng-click="homeCtrl.openNewChannelModal()">Add Channel</button>
           @endif
+          <a href="{{ url('auth/logout') }}" class="btn btn-default">Log out</a>
         </div>
       </div>
     </header>

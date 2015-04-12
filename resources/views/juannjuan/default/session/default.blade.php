@@ -5,7 +5,10 @@
   <div data-ng-init="
     ctrl.you = {
       id: {{ Auth::id() }},
-      avatar: '{{ \CoreProc\JuanNJuan\User::find(Auth::id())->userProfile->avatar }}'
+      avatar: '{{ \CoreProc\JuanNJuan\User::find(Auth::id())->userProfile->avatar }}',
+      channel: {
+        id: {{ \CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->first()->id }}
+      }
     };
     ctrl.channel = {
       peer_key: '{{ $channel->peer_key }}',
@@ -14,7 +17,9 @@
       }
     };
     ctrl.current = {
-      channel: {{ $session_id }}
+      channel: {
+        id: {{ $session_id }}
+      }
     };
   ">
     <div class="session__stream paneling-container" data-ng-class="{ 'list-visible': ctrl.listVisible }">
@@ -30,14 +35,25 @@
             </div>
           </div>
           <div class="paneling-body">
-            <a href="#" data-ng-href="/session/@{{ channel.id }}" data-ng-class="{ 'active': channel.id == ctrl.current.channel }" data-ng-repeat="channel in ctrl.channels" data-ng-cloak>
+            <a href="#" data-ng-href="/session/@{{ ctrl.you.channel }}" data-ng-class="{ 'active': ctrl.you.channel.id == ctrl.current.channel.id }" data-ng-cloak>
               <div class="media">
                 <div class="media-left">
-                  <img class="media-object" src="" data-ng-src="@{{ channel.user.user_profile.avatar }}" alt="@{{ channel.name }}">
+                  <img class="media-object" src="" data-ng-src="@{{ ctrl.you.avatar }}" alt="Your Channel">
+                </div>
+                <div class="media-body">
+                  <p class="h3 media-heading">Your Channel</p>
+                  <p data-ng-bind="channel.desc">Desc</p>
+                </div>
+              </div>
+            </a>
+            <a href="#" data-ng-href="/session/@{{ channel.id }}" data-ng-class="{ 'active': channel.id == ctrl.current.channel.id }" data-ng-repeat="channel in ctrl.channels" data-ng-cloak>
+              <div class="media">
+                <div class="media-left">
+                  <img class="media-object" src="" data-ng-src="@{{ channel.user.user_profile.avatar }}" alt="@{{ channel.name }} Channel">
                 </div>
                 <div class="media-body">
                   <p data-ng-bind="channel.country.name" class="text-muted pull-right hidden-sm hidden-xs"></p>
-                  <p class="h3 media-heading" data-ng-bind="channel.name">Media heading</p>
+                  <p class="h3 media-heading" data-ng-bind="channel.name"></p>
                   <p data-ng-bind="channel.desc"></p>
                   <p data-ng-bind="channel.country.name" class="text-muted visible-sm visible-xs"></p>
                 </div>
@@ -59,16 +75,19 @@
             <video id="session__peer-main" autoplay></video>
             <div class="inset">
               <div class="paneling-container">
-                <div class="paneling-sidebar paneling-sidebar--left">
-                  <button class="btn btn-link"
-                          data-ng-style="{ 'color': ctrl.muted ? '#ff0000' : null }"
-                          data-ng-click="ctrl.muted = !ctrl.muted">
-                    <i class="fa fa-fw" data-ng-class="{ 'fa-volume-up': !ctrl.muted, 'fa-volume-off': ctrl.muted }"></i>
-                  </button>
+                <div class="paneling-header">
+                  <div class="container-fluid">
+                    <button class="btn btn-link btn-mute-toggle"
+                            data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top"
+                            data-ng-style="{ 'color': ctrl.muted ? '#ff0000' : null }"
+                            data-ng-click="ctrl.muted = !ctrl.muted">
+                      <i class="fa fa-fw" data-ng-class="{ 'fa-volume-up': !ctrl.muted, 'fa-volume-off': ctrl.muted }"></i>
+                    </button>
 
-                  <button class="btn btn-avatar">
-                    <img data-ng-src="@{{ ctrl.you.avatar }}">
-                  </button>
+                    <button class="btn btn-avatar" data-container="body" data-toggle="popover" data-trigger="click" data-placement="top">
+                      <img data-ng-src="@{{ ctrl.you.avatar }}">
+                    </button>
+                  </div>
                 </div>
                 <div class="paneling-body">
                   <video id="session__you" autoplay data-ng-muted="ctrl.muted"></video>
