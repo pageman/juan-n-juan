@@ -5,7 +5,7 @@
   <div data-ng-init="
     ctrl.you = {
       id: {{ Auth::id() }},
-      avatar: "{{ $avatar }}",
+      avatar: '{{ $avatar }}',
       @if($hasOwnChannel)
       channel: {
         id: {{ \CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->first()->id }}
@@ -13,7 +13,7 @@
       @endif
     };
     ctrl.channel = {
-      peer_key: "{{ $channel->peer_key }}",
+      peer_key: '{{ $channel->peer_key }}',
       owner: {
         id: {{ $channel->user->id }}
       }
