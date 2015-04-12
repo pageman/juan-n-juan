@@ -26,6 +26,7 @@
                 });
 
                 peer.on('call', function(call) {
+
                     console.log(call);
 
                     call.answer(window.localStream);
