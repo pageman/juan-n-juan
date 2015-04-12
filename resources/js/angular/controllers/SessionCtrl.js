@@ -15,7 +15,7 @@
 
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-        ctrl.connect = function(thatId) {
+        ctrl.connect = function() {
             var isYourChannel = ctrl.channel.owner.id === ctrl.you.id;
 
             if(!ctrl.channel.peer_key) {
@@ -34,9 +34,8 @@
 
                 peer.on("open", function() {
                     loadStream(function(stream) {
-                        //console.log(ctrl);
-
-                        ctrl.isStreamReady = true;
+                        angular.element("#session__inset")
+                            .css("opacity", 1);
 
                         angular.element('#session__you')
                             .prop('src', URL.createObjectURL(stream));
@@ -46,6 +45,7 @@
 
                             call.on('stream', function(stream) {
                                 angular.element('#session__peer-main')
+                                    .css("opacity", 1)
                                     .prop('src', URL.createObjectURL(stream));
                             });
                         });
@@ -64,7 +64,8 @@
                 peer.on("open", function() {
                     loadStream(function(stream) {
                         //console.log(ctrl);
-                        ctrl.isStreamReady = true;
+                        angular.element("#session__inset")
+                            .css("opacity", 1);
 
                         angular.element('#session__you')
                             .prop('src', URL.createObjectURL(stream));
@@ -81,6 +82,7 @@
 
                             call.on('stream', function(stream) {
                                 angular.element('#session__peer-main')
+                                    .css("opacity", 1)
                                     .prop('src', URL.createObjectURL(stream));
                             });
                         });

@@ -6,18 +6,13 @@
       <div class="container">
         <h2 class="pull-left">Channels</h2>
         <div class="h2 pull-right">
-          @if(\CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->exists())
-            <a class="btn btn-primary" href="{{ url('session/' . \CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->first()->id) }}">Go to Channel</a>
-          @else
-            <button class="btn btn-primary" data-ng-click="homeCtrl.openNewChannelModal()">Add Channel</button>
-          @endif
           <a href="{{ url('auth/logout') }}" class="btn btn-default">Log out</a>
         </div>
       </div>
     </header>
     <div class="paneling-body">
-      <div class="container">
-        @if(\CoreProc\JuanNJuan\Channel::where('user_id', '<>', Auth::id())->count() > 0)
+      @if(\CoreProc\JuanNJuan\Channel::where('user_id', '<>', Auth::id())->count() > 0)
+        <div class="container">
           <ul class="row" data-ng-cloak>
             <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3" data-ng-repeat="channel in ctrl.channels">
               <a data-ng-href="/session/@{{ channel.id }}">
@@ -35,16 +30,20 @@
               </a>
             </li>
           </ul>
-        @else
-          <p class="h2 text-center">
-            @if(\CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->exists())
-              No channels! Click on <strong>Go to Channel</strong> in the upper-right corner of the screen to connect.
-            @else
-              No channels! Click on <strong>Add Channel</strong> in the upper-right corner of the screen.
-            @endif
-          </p>
-        @endif
       </div>
+      @else
+        <div class="centerbox">
+          <div>
+            <div>
+              @if(\CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->exists())
+                There isn't any channels for now except yours. Click on <a class="btn btn-primary btn-lg" href="{{ url('session/' . \CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->first()->id) }}">Go to Channel</a> to connect.
+              @else
+                No channels! Click on <button class="btn btn-primary btn-lg" data-ng-click="homeCtrl.openNewChannelModal()">Add Channel</button>.
+              @endif
+            </div>
+          </div>
+        </div>
+      @endif
     </div>
   </div>
 
