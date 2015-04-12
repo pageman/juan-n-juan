@@ -44,9 +44,9 @@
                     //port: 9001
                 });
 
-                console.log(call);
-
                 var call = peer.call(ctrl.channel.peer_key, window.localStream);
+
+                console.log(call);
 
                 call.on('stream', function(stream) {
                     angular.element('#session__peer-main')
