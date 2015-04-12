@@ -31,14 +31,16 @@
                         angular.element('#session__you')
                             .prop('src', URL.createObjectURL(stream));
 
-                        peer.on('call', function(call) {
-                            call.answer(window.localStream);
 
-                            call.on('stream', function(stream) {
-                                angular.element('#session__peer-main')
-                                    .prop('src', URL.createObjectURL(stream));
-                            });
-                        });
+                    });
+                });
+
+                peer.on('call', function(call) {
+                    call.answer(window.localStream);
+
+                    call.on('stream', function(stream) {
+                        angular.element('#session__peer-main')
+                            .prop('src', URL.createObjectURL(stream));
                     });
                 });
             }
