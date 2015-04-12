@@ -37,7 +37,7 @@
         @else
           <p class="h2 text-center">
             @if(\CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->exists())
-              No channels! Click on <strong>Go to Channel</strong> to connect.
+              No channels! Click on <strong>Go to Channel</strong> in the upper-right corner of the screen to connect.
             @else
               No channels! Click on <strong>Add Channel</strong> in the upper-right corner of the screen.
             @endif
