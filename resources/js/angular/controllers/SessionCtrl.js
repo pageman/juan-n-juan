@@ -155,6 +155,7 @@
             konami.code = function() {
                 angular.element("#session__peer-main")
                     .prop('src', "http://www.youtubeinmp4.com/redirect.php?video=cy-KNoGfQr0");
+                console.log('asdfasdf');
             };
             konami.load();
         });
