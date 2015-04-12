@@ -18,7 +18,7 @@
             var isYourChannel = ctrl.channel.owner.id === ctrl.you.id;
 
             if(isYourChannel) {
-                console.log("This is your channel!");
+                //console.log("This is your channel!");
                 peer = new Peer(ctrl.channel.peer_key, {
                     key: 'iotmf53jop1iqkt9',
                     debug: 3,
@@ -32,7 +32,7 @@
                             .prop('src', URL.createObjectURL(stream));
 
                         peer.on('call', function(call) {
-                            call.answer(window.localStream);
+                            call.answer(stream);
 
                             call.on('stream', function(stream) {
                                 angular.element('#session__peer-main')
@@ -43,7 +43,7 @@
                 });
             }
             else {
-                console.log("This is not your channel!");
+                //console.log("This is not your channel!");
                 peer = new Peer({
                     key: 'iotmf53jop1iqkt9',
                     debug: 3,
@@ -61,10 +61,18 @@
                         call.on('stream', function(stream) {
                             angular.element('#session__peer-main')
                                 .prop('src', URL.createObjectURL(stream));
-                        })
+                        });
+                        //
+                        //peer.on('call', function(call) {
+                        //    call.answer(window.localStream);
+                        //
+                        //    call.on('stream', function(stream) {
+                        //        angular.element('#session__peer-main')
+                        //            .prop('src', URL.createObjectURL(stream));
+                        //    });
+                        //});
                     });
                 });
-
             }
 
             /*
