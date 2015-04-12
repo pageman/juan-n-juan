@@ -40,15 +40,15 @@ class ChannelController extends Controller {
     {
         try {
             if (Request::has(['latitude', 'longitude'])) {
-                $country_code = Geocoder::reverse(Request::get('latitude'), Request::get('longitude'))->getCountryCode();
+                $country_code = Geocoder::reverse(Request::get('latitude'), Request::get('longitude'))->getCountry();
             } else {
-                $country_code = Geocoder::geocode($_SERVER['REMOTE_ADDR'])->getCountryCode();
+                $country_code = Geocoder::geocode($_SERVER['REMOTE_ADDR'])->getCountry();
             }
         } catch (Exception $e) {
 
         }
 
-        $country_code = @($country_code) ?: 608;
+        $country_code = @($country_code) ?: 'Philippines';
 
         try {
             $channel = Channel::firstOrNew([
@@ -61,8 +61,15 @@ class ChannelController extends Controller {
             $channel->peer_key = Request::get('peer_key');
             $channel->password = bcrypt(Request::get('password'));
             if (isset($country_code)) {
-                $channel->country_id = Country::where('country_code', $country_code)->first()->id;
+                $country = Country::where('name', $country_code)->first();
+
+                if (isset($country)) {
+                    $channel->country_id = $country->id;
+                } else {
+                    $channel->country_id = 608;
+                }
             }
+
             $channel->save();
         } catch (Exception $e) {
             return Error::response($e);

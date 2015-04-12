@@ -21,6 +21,8 @@ class Error {
 
         return Response::json([
             'error' => [
+                'file'    => $e->getFile(),
+                'line'    => $e->getLine(),
                 'message' => $e->getMessage()
             ]
         ]);
