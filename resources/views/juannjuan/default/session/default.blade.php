@@ -48,7 +48,7 @@
             </div>
           </div>
           <div class="paneling-body">
-            <video id="session__peer-main"></video>
+            <video id="session__peer-main" autoplay></video>
             <div class="inset">
               <div class="paneling-container">
                 <div class="paneling-sidebar paneling-sidebar--left">
