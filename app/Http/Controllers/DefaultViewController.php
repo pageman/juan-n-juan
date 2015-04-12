@@ -1,8 +1,8 @@
 <?php namespace CoreProc\JuanNJuan\Http\Controllers;
 
+use Auth;
 use CoreProc\JuanNJuan\Channel;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class DefaultViewController extends ViewController {
 
@@ -45,7 +45,12 @@ class DefaultViewController extends ViewController {
         try {
             $channel = Channel::findOrFail($sessionId);
 
-            return $this->makeView('session','Session: '. $channel->name, ["session_id" => $sessionId, "channel" => $channel]);
+            $avatar = Auth::user()->userProfile->avatar;
+
+            $hasOwnChannel = \CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->exists();
+
+            return $this->makeView('session', 'Session: ' . $channel->name,
+                ["session_id" => $sessionId, "channel" => $channel, "avatar" => $avatar, "hasOwnChannel" => $hasOwnChannel]);
         } catch (ModelNotFoundException $e) {
             app()->abort(404);
         }
