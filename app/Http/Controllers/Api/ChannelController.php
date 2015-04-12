@@ -21,7 +21,8 @@ class ChannelController extends Controller {
     public function index()
     {
         $channels = Request::has('country') ?
-            Channel::where('country_id', Request::get('country'))->get() : Channel::all();
+            Channel::where('country_id', Request::get('country'))->where('user_id', '<>', Auth::id())->get() :
+            Channel::where('user_id', '<>', Auth::id())->get();
 
         return Response::json([
             'ok' => $channels->load(['user.userProfile', 'country'])
