@@ -36,11 +36,11 @@ class ChannelController extends Controller {
         ]);
     }
 
-    public function create(Requests\ChannelRequest $request)
+    public function create()
     {
         try {
-            if ($request->has(['latitude', 'longitude'])) {
-                $country_code = Geocoder::reverse($request->get('latitude'), $request->get('longitude'))->getCountryCode();
+            if (Request::has(['latitude', 'longitude'])) {
+                $country_code = Geocoder::reverse(Request::get('latitude'), Request::get('longitude'))->getCountryCode();
             } else {
                 $country_code = Geocoder::geocode($_SERVER['REMOTE_ADDR'])->getCountryCode();
             }
@@ -56,10 +56,10 @@ class ChannelController extends Controller {
             ]);
 
             $channel->user_id  = Auth::id();
-            $channel->name     = $request->get('name');
-            $channel->desc     = $request->get('desc');
-            $channel->peer_key = $request->get('peer_key');
-            $channel->password = bcrypt($channel->password);
+            $channel->name     = Request::get('name');
+            $channel->desc     = Request::get('desc');
+            $channel->peer_key = Request::get('peer_key');
+            $channel->password = bcrypt(Request::get('password'));
             if (isset($country_code)) {
                 $channel->country_id = Country::where('country_code', $country_code)->first()->id;
             }
