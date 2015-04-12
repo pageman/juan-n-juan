@@ -15,7 +15,7 @@
 
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-        ctrl.connect = function() {
+        ctrl.connect = function(thatId) {
             var isYourChannel = ctrl.channel.owner.id === ctrl.you.id;
 
             if(isYourChannel) {
@@ -95,7 +95,7 @@
 
         var loadStream = function(cb) {
             navigator.getUserMedia({video: true, audio: true}, cb, function(err) {
-                console.log('Failed to get local stream' ,err);
+                console.log('Failed to get local stream', err);
             });
         };
 
