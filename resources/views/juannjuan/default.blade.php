@@ -7,7 +7,7 @@
       id="view--{{ $view->id }}">
 <head>
   <meta charset="utf-8">
-  <title>{{ $view->title }}</title>
+  <title>{{ $view->title }} | {{ $app->name }}</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="http://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet" type="text/css">

@@ -11,6 +11,7 @@
     angular.module("jnj", [
         "restangular",
         "ui.bootstrap",
+        "geolocation",
 
         "jnj.services",
         "jnj.controllers",

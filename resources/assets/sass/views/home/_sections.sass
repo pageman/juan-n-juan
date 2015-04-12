@@ -28,6 +28,7 @@
             > a
               position: relative
               overflow: hidden
+              margin-bottom: 10px
               > i
                 position: absolute
                 font-size: 400%
@@ -56,13 +57,17 @@ video#bgvid
     > a
       @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large)
       padding-left: 64px + 15px
+      margin: 0 4px
       > i
         font-size: 400%
 @media (max-width: $screen-xs-max)
   p.h1
     font-size: $font-size-h1
   .view__cta
+    padding: 0 10%
     > a
       padding-left: 48px + 15px
+
+      width: 100%
       > i
         font-size: 200%

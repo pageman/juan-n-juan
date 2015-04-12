@@ -1,4 +1,4 @@
-@extends('juannjuan.default.home')
+@extends('juannjuan.default.channels')
 
 @section('body')
   <div data-ng-controller="ChannelsCtrl as ctrl" class="paneling-container" id="view__channel-list">

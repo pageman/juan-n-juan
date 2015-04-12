@@ -23,7 +23,8 @@ elixir(function(mix) {
             "../../vendor/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js",
             "../../vendor/bower_components/angular/angular.js",
             "../../vendor/bower_components/restangular/dist/restangular.js",
-            "../../vendor/bower_components/angular-bootstrap/ui-bootstrap.js",
+            "../../vendor/bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
+            "../../vendor/bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js",
 
             "../../vendor/bower_components/peerjs/peer.js",
 
@@ -33,6 +34,7 @@ elixir(function(mix) {
             "angular/services/ApiService.js",
 
             "angular/controllers/ChannelsCtrl.js",
+            "angular/controllers/ChannelModalCtrl.js",
             "angular/controllers/HomeCtrl.js",
             "angular/controllers/SessionCtrl.js",
 
