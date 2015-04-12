@@ -151,13 +151,13 @@
                 });
             });
 
-            var konami = new Konami();
-            konami.code = function() {
-                angular.element("#session__peer-main")
-                    .prop('src', "http://www.youtubeinmp4.com/redirect.php?video=cy-KNoGfQr0");
-                console.log('asdfasdf');
-            };
-            konami.load();
+            //var konami = new Konami();
+            //konami.code = function() {
+            //    angular.element("#session__peer-main")
+            //        .prop('src', "http://www.youtubeinmp4.com/redirect.php?video=cy-KNoGfQr0");
+            //    console.log('asdfasdf');
+            //};
+            //konami.load();
         });
     };
 
@@ -166,4 +166,7 @@
     angular
         .module("jnj.controllers")
         .controller("SessionCtrl", SessionCtrl);
-})(angular, Peer, alertHack, Konami);
+})(angular, Peer, alertHack,
+    //Konami
+    {}
+);
