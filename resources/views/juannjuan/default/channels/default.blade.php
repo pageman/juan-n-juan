@@ -4,8 +4,18 @@
   <div class="paneling-container" id="view__channel-list" data-ng-controller="HomeCtrl as homeCtrl">
     <header class="paneling-header">
       <div class="container">
+        <div class="h2 pull-left view__back">
+          <a href="{{ url() }}"><i class="fa fa-fw fa-home"></i></a>
+        </div>
         <h2 class="pull-left">Channels</h2>
         <div class="h2 pull-right">
+          @if(\CoreProc\JuanNJuan\Channel::where('user_id', '<>', Auth::id())->count() > 0)
+            @if(\CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->exists())
+              <a class="btn btn-primary" href="{{ url('session/' . \CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->first()->id) }}">Go to Channel</a>
+            @else
+              <button class="btn btn-primary btn-lg" data-ng-click="homeCtrl.openNewChannelModal()">Add Channel</button>
+            @endif
+          @endif
           <a href="{{ url('auth/logout') }}" class="btn btn-default">Log out</a>
         </div>
       </div>

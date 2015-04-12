@@ -13,7 +13,7 @@
               @if(Auth::check())
                 @if(\CoreProc\JuanNJuan\Channel::all()->count() > 0)
                 <a class="btn btn-primary btn-lg" href="{{ url('channels') }}">
-                  <i class="fa fa-comments"></i>Find Channels
+                  <i class="fa fa-search"></i>Find Channels
                 </a>@endif <a class="btn btn-primary btn-lg" href="#" data-ng-click="homeCtrl.openNewChannelModal()">
                   <i class="fa fa-comments"></i>Create Channel
                 </a>
@@ -27,6 +27,13 @@
                   <i class="fa fa-twitter-square"></i> Twitter
                 </a>
               @endif
+            </div>
+            <div>
+              @if(Auth::check())
+              <a href="{{ url('auth/logout') }}">Log out</a> |
+              @endif
+              <a href="{{ url('legal/terms') }}">Terms and Conditions</a> |
+              <a href="{{ url('legal/privacy') }}">Privacy Policy</a>
             </div>
           </div>
         </div>
