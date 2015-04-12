@@ -35,7 +35,7 @@
             </div>
           </div>
           <div class="paneling-body">
-            <a href="#" data-ng-href="/session/@{{ ctrl.you.channel }}" data-ng-class="{ 'active': ctrl.you.channel.id == ctrl.current.channel.id }" data-ng-cloak>
+            <a href="#" data-ng-href="/session/@{{ ctrl.you.channel.id }}" data-ng-class="{ 'active': ctrl.you.channel.id == ctrl.current.channel.id }" data-ng-cloak>
               <div class="media">
                 <div class="media-left">
                   <img class="media-object" src="" data-ng-src="@{{ ctrl.you.avatar }}" alt="Your Channel">
