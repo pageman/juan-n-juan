@@ -51,11 +51,14 @@ class ChannelController extends Controller {
         $country_code = @($country_code) ?: 608;
 
         try {
-            $channel          = Channel::firstOrNew([
+            $channel = Channel::firstOrNew([
                 'user_id' => Auth::id()
             ]);
-            $channel->user_id = Auth::id();
-            $channel->fill($request->all());
+
+            $channel->user_id  = Auth::id();
+            $channel->name     = $request->get('name');
+            $channel->desc     = $request->get('desc');
+            $channel->peer_key = $request->get('peer_key');
             $channel->password = bcrypt($channel->password);
             if (isset($country_code)) {
                 $channel->country_id = Country::where('country_code', $country_code)->first()->id;
