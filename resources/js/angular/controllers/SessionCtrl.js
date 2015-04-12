@@ -7,7 +7,7 @@
     var SessionCtrl = function(ApiService, $timeout) {
         var ctrl = this;
 
-        var peer;
+        var peer = {};
 
         ctrl.muted = false;
         ctrl.listVisible = false;
@@ -27,6 +27,10 @@
             call.on('stream', function(stream) {
                 angular.element('#session__peer-main')
                     .prop('src', URL.createObjectURL(stream));
+            });
+
+            peer.on('call', function(c) {
+                console.log(c);
             });
         };
 
