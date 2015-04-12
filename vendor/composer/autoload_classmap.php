@@ -1016,6 +1016,7 @@ return array(
     'CoreProc\\JuanNJuan\\Events\\Event' => $baseDir . '/app/Events/Event.php',
     'CoreProc\\JuanNJuan\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'CoreProc\\JuanNJuan\\Http\\Controllers\\Api\\ChannelController' => $baseDir . '/app/Http/Controllers/Api/ChannelController.php',
+    'CoreProc\\JuanNJuan\\Http\\Controllers\\Api\\CountryController' => $baseDir . '/app/Http/Controllers/Api/CountryController.php',
     'CoreProc\\JuanNJuan\\Http\\Controllers\\Api\\UserController' => $baseDir . '/app/Http/Controllers/Api/UserController.php',
     'CoreProc\\JuanNJuan\\Http\\Controllers\\Auth\\AuthController' => $baseDir . '/app/Http/Controllers/Auth/AuthController.php',
     'CoreProc\\JuanNJuan\\Http\\Controllers\\Auth\\PasswordController' => $baseDir . '/app/Http/Controllers/Auth/PasswordController.php',

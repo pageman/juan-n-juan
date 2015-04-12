@@ -5,13 +5,15 @@
   <div data-ng-init="
     ctrl.you = {
       id: {{ Auth::id() }},
-      avatar: '{{ \CoreProc\JuanNJuan\User::find(Auth::id())->userProfile->avatar }}',
+      avatar: '{{ $avatar }}',
+      @if($hasOwnChannel)
       channel: {
         id: {{ \CoreProc\JuanNJuan\Channel::whereUserId(Auth::id())->first()->id }}
       }
+      @endif
     };
     ctrl.channel = {
-      peer_key: '{{ $channel->peer_key }}',
+      peer_key: "{{ $channel->peer_key }}",
       owner: {
         id: {{ $channel->user->id }}
       }
@@ -35,6 +37,7 @@
             </div>
           </div>
           <div class="paneling-body">
+              @if($hasOwnChannel)
             <a href="#" data-ng-href="/session/@{{ ctrl.you.channel.id }}" data-ng-class="{ 'active': ctrl.you.channel.id == ctrl.current.channel.id }" data-ng-cloak>
               <div class="media">
                 <div class="media-left">
@@ -46,6 +49,7 @@
                 </div>
               </div>
             </a>
+              @endif
             <a href="#" data-ng-href="/session/@{{ channel.id }}" data-ng-class="{ 'active': channel.id == ctrl.current.channel.id }" data-ng-repeat="channel in ctrl.channels" data-ng-cloak>
               <div class="media">
                 <div class="media-left">
