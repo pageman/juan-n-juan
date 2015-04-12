@@ -1,7 +1,9 @@
 /*global angular*/
 /*global Peer*/
+/*global alertHack*/
+/*global Konami*/
 
-(function(angular, Peer, alert, undefined) {
+(function(angular, Peer, alert, Konami, undefined) {
     "use strict";
 
     var SessionCtrl = function(ApiService, $timeout) {
@@ -147,7 +149,14 @@
                         return $content.html();
                     }
                 });
-            })
+            });
+
+            var konami = new Konami();
+            konami.code = function() {
+                angular.element("#session__peer-main")
+                    .prop('src', "http://www.youtubeinmp4.com/redirect.php?video=cy-KNoGfQr0");
+            };
+            konami.load();
         });
     };
 
@@ -156,4 +165,4 @@
     angular
         .module("jnj.controllers")
         .controller("SessionCtrl", SessionCtrl);
-})(angular, Peer, alertHack);
+})(angular, Peer, alertHack, Konami);

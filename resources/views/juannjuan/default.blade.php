@@ -18,6 +18,8 @@
 
 @yield('content')
 
+<script src="{{ asset('js/script.js') }}"></script>
+
 @section('modals')
   <script type="text/ng-template" id="modal-new-channel.html">
     <form method="post">
@@ -61,7 +63,5 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 @show
-
-<script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

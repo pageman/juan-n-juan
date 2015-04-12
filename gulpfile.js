@@ -18,6 +18,8 @@ elixir(function(mix) {
         .copy("vendor/bower_components/angular/angular-csp.css", "public/css")
         .sass("style.sass", false, { indentedSyntax: true })
         .scripts([
+            "../../vendor/bower_components/konami.js",
+
             "../../vendor/bower_components/jquery/dist/jquery.js",
             "hack/alert.js",
 
