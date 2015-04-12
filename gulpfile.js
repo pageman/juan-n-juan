@@ -15,6 +15,7 @@ elixir(function(mix) {
     mix
         .copy("vendor/bower_components/bootstrap-sass/assets/fonts/bootstrap", "public/fonts/glyphicons")
         .copy("vendor/bower_components/fontawesome/fonts", "public/fonts/fontawesome")
+        .copy("vendor/bower_components/angular/angular-csp.css", "public/css")
         .sass("style.sass", false, { indentedSyntax: true })
         .scripts([
             "../../vendor/bower_components/jquery/dist/jquery.js",
