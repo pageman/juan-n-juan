@@ -28,7 +28,7 @@
               <a data-ng-href="/session/@{{ channel.id }}">
                 <div class="media">
                   <div class="media-left">
-                    <img class="media-object" src="" data-ng-src="@{{ channel.user.user_profile.avatar }}" alt="@{{ channel.name }}">
+                    <img class="media-object img-circle" src="" data-ng-src="@{{ channel.user.user_profile.avatar }}" alt="@{{ channel.name }}">
                   </div>
                   <div class="media-body">
                     <p data-ng-bind="channel.country.name" class="hidden-lg pull-right text-muted"></p>

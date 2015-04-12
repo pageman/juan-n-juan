@@ -81,7 +81,7 @@
             <a href="#" data-ng-href="/session/@{{ ctrl.you.channel.id }}" data-ng-class="{ 'active': ctrl.you.channel.id == ctrl.current.channel.id }" data-ng-cloak>
               <div class="media">
                 <div class="media-left">
-                  <img class="media-object" src="" data-ng-src="@{{ ctrl.you.avatar }}" alt="Your Channel">
+                  <img class="media-object img-circle" src="" data-ng-src="@{{ ctrl.you.avatar }}" alt="Your Channel">
                 </div>
                 <div class="media-body">
                   <p class="h3 media-heading">Your Channel</p>
