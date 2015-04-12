@@ -48,7 +48,7 @@
                 });
 
                 peer.on("open", function() {
-                    peer.call(ctrl.channel.peer_key, window.localStream);
+                    var call = peer.call(ctrl.channel.peer_key, window.localStream);
 
                     console.log(call);
 
