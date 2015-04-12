@@ -18,17 +18,24 @@
             var isYourChannel = ctrl.channel.owner.id === ctrl.you.id;
 
             if(isYourChannel) {
+                console.log("This is your channel!");
                 peer = new Peer(ctrl.channel.peer_key, {
                     key: 'iotmf53jop1iqkt9'
                     //host: "yui-chan",
                     //port: 9001
                 });
 
-                peer.on('call', function(c) {
-                    console.log(c);
+                peer.on('call', function(call) {
+                    call.answer(window.localStream);
+
+                    call.on('stream', function(stream) {
+                        angular.element('#session__peer-main')
+                            .prop('src', URL.createObjectURL(stream));
+                    });
                 });
             }
             else {
+                console.log("This is not your channel!");
                 peer = new Peer({
                     key: 'iotmf53jop1iqkt9'
                     //host: "yui-chan",
