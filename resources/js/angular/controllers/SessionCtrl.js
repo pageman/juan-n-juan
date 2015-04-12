@@ -44,6 +44,8 @@
                     //port: 9001
                 });
 
+                console.log(call);
+
                 var call = peer.call(ctrl.channel.peer_key, window.localStream);
 
                 call.on('stream', function(stream) {
